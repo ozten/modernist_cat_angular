@@ -185,4 +185,22 @@ li.laminate2 {background-position: -67px -305px}
 li.laminate3 {background-position: -67px -455px}
 li.laminate4 {background-position: -67px -605px}
 
+li[class*='fleece'] {
+  background:url('images/samples/fleece.jpg') 0 0 no-repeat;
+}
+li.fleece0 {background-position: -67px 0} 
+li.fleece1 {background-position: -67px -155px}
+li.fleece2 {background-position: -67px -305px}
+li.fleece3 {background-position: -67px -455px}
+li.fleece4 {background-position: -67px -605px}
+li.fleece5 {background-position: -67px -755px}
 
+li[class*='fabric'] {
+  background:url('images/samples/fabrics.jpg') 0 0 no-repeat;
+}
+li.fabric0 {background-position: -67px 0} 
+li.fabric1 {background-position: -67px -155px}
+li.fabric2 {background-position: -67px -305px}
+li.fabric3 {background-position: -67px -455px}
+li.fabric4 {background-position: -67px -605px}
+li.fabric5 {background-position: -67px -755px}

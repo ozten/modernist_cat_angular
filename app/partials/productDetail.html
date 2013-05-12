@@ -22,7 +22,7 @@
             <h5>Addons</h5>
 			<ul ng-repeat="addonType in product.addons" class="no-bullet">
 				<li><input type="checkbox" ng-click="toggleAddons(addonType.price)">{{addonType.title}}: (${{addonType.price}})
-					<ul class="no-bullet" ng-controller="ProductSelectionCtrl" ng-show="isVisible"><li ng-repeat="choice in options[addonType.options].choices" class="{{addonType.options}} {{choice}} {{options[addonType.options].type}}" ng-class="{active: isActive(choice)}" ng-click="select(choice)" chooser layout="{{options[optionType].type}}">{{choice}}</li><li chooser>{{selected}}</li><li class="notes">{{addonType.description}}</li></ul>
+					<ul class="no-bullet" ng-controller="ProductSelectionCtrl" ng-show="isVisible"><li ng-repeat="choice in options[addonType.options].choices" class="{{addonType.options}}{{$index}} {{options[addonType.options].type}}" ng-class="{active: isActive(choice)}" ng-click="select(choice)" chooser layout="{{options[optionType].type}}">{{choice}}</li><li chooser>{{selected}}</li><li class="notes">{{addonType.description}}</li></ul>
 				</li>
 			</ul>
           </div>

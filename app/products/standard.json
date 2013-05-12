@@ -10,9 +10,18 @@
     ],
     "addons": [
         {
-            "title": "Order Additional Carpet Swatch",
-            "options": "Scratch",
-            "price": "30"
+            "title": "Interior Fleece Bed",
+            "options": "fleece",
+            "price": "49"
+        }, {
+            "title": "Exterior Lounge Pad",
+            "options": "fabric",
+            "price": "49"
+        }
+        , {
+            "title": "Litter Pan",
+            "options": "",
+            "price": "15"
         }
     ],
     "price": 599,
