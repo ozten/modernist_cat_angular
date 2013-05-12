@@ -1,0 +1,8 @@
+<h2>Products</h2>
+	<div class="twelve columns">
+    <ul class="productList horizontal no-bullet">
+
+      	<thumbnail ng-repeat="product in products" name={{product.name}} subtitle={{product.subtitle}} prodID={{product.id}}><img ng-src="{{product.imageUrl}}" /></thumbnail>
+      		
+  	</ul>
+    </div>

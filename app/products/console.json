@@ -1,0 +1,39 @@
+{
+  "id": "console",
+  "name": "Circa50:Console",
+  "subtitle": "Pet Scratcher",
+  "description": "The Modernist Cat Circa50: Console is perfect for any room in your home and ideal for small spaces! Designed by Crystal Gregory, this dual purpose console attaches to any wall for support and provides a sleek and functional solution for keeping important items at hand while giving your modern kitty the ultimate place to perch and scratch!<br/><br/>We offer custom fit FLOR carpet tiles that are easy to replace if it get’s worn or if you just want to change the color to switch-up your décor!",
+  "options": ["scratch"],
+  "addons": [{"options": "scratch", "title":"Order Additional Carpet Swatch","description":"Includes hardware. Inquire about additional carpet selections from flor.com",  "price": 29}],
+  "price": 399,
+  "details":[{
+      "title" : "Features",
+      "content" : [
+                "Hand crafted with Walnut Hardwood veneer Euro Ply","Water resistant finish",
+                "Slender display shelf","Open storage cubby",
+                "Removable/replaceable FLOR carpet tiles in 5 colors", 
+                "Easy installation – wall mounting hardware included"
+                ]},{
+      "title":"Specifications",
+      "content": [
+                "21 1/8”W x 12”D x 34”H", 
+                "Display Shelf: 21 1/8”W x 7 ½ “D",
+                "Open Cubby: 19 ¾”W x 7 ½ D x 6”H"
+                ]},{
+      "title":"Shipping",
+      "content": [
+                "Items ship free, fully assembled (Continental US only)", 
+                "Please allow 2-3 weeks for delivery",
+                "For international shipping rates, please contact me for a quote"
+                ]}],
+  "images": [
+            "img/products/console1.jpg",
+            "img/products/console2.jpg",
+            "img/products/console3.jpg",
+            "img/products/console4.jpg",
+            "img/products/console5.jpg",
+            "img/products/console6.jpg",
+            "img/products/console7.jpg",
+            "img/products/console8.jpg"
+  ]
+}

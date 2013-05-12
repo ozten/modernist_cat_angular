@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" ng-app="modCat">
+ <head>
+    <meta charset="utf-8" />
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Modernist Cat: Made for pets. Designed for you.</title>
+
+    <!-- Included CSS Files (Compressed) -->
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link href='http://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
+    <!--<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">-->
+ 
+  </head>
+<body>
+  <div class="row">
+          <div class="six columns">
+          <h1 class="logo alt">modernistcat made for pets. designed for you.</h1>
+          </div>
+          <div class="six columns">
+          <nav class="right"><ul class="no-bullet"><li><a href="#/products">shop</a><li>about us<li>FAQ
+          <li><a href="http://www.facebook.com/pages/Seattle-WA/Modernist-Cat/115777068471250" title="Like us on Facebook"  class="social facebook alt">Facebook</a></li>
+          <li><a href="https://twitter.com/ModernistCat" class="social twitter alt" data-show-count="false" title="Follow us on Twitter">Twitter</a></li>
+          <li><a data-pin-do="buttonFollow" class="social pinterest alt" href="http://pinterest.com/modernistcat/" title="Follow us on Pinterest">Pinterest</a></li>
+          </nav>
+          </div> 
+        </div>
+        <div class="row" id="content"><div ng-view></div></div>
+      </div>
+      <div id="footer">Copyright 2013 Modernist Cat | site designed and developed by Patty OHara</div>
+  
+
+  <div>Angular seed app: </div>
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+  -->
+  <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular/angular-resource.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/directives.js"></script>
+ 
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.3.0.js"></script>
+  
+    
+</body>
+</html>

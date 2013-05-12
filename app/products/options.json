@@ -1,0 +1,6 @@
+{
+	"scratch" : {"title":"Scratch", "type": "tile", "choices" :["Bark", "Teal", "Tangerine", "Bone", "Kiwi"]},
+	"door" : {"title":"Door", "type": "radio", "choices" :["rectangle", "circle"]},
+	"entSide" : {"title":"Entrance Side","type": "radio", "choices" :["right", "left"]},
+	"laminate":{"title":"Door Finish", "type": "tile", "choices": ["Walnut", "White", "Poppy & Orange", "Robin & Space", "Mint & Pear"]}
+}

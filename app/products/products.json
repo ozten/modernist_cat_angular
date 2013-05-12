@@ -1,0 +1,32 @@
+[
+    {    
+        "name": "Circa50:Console", 
+        "subtitle": "Pet Scratcher",
+        "imageUrl": "img/products/console1.jpg", 
+        "description": "The Modernist Cat Circa50: Console is perfect for any room in your home and ideal for small spaces! Designed by Crystal Gregory, this dual purpose console attaches to any wall for support and provides a sleek and functional solution for keeping important items at hand while giving your modern kitty the ultimate place to perch and scratch!<br/><br/>We offer custom fit FLOR carpet tiles that are easy to replace if it get’s worn or if you just want to change the color to switch-up your décor!",
+        "id": "console",
+        "price": "399"  
+    }, 
+    {
+        "name": "Circa50:Standard", 
+        "subtitle": "Pet House",
+        "imageUrl": "img/products/standard1.jpg", 
+        "description": "The Modernist Cat Circa50: Console is perfect for any room in your home and ideal for small spaces! Designed by Crystal Gregory, this dual purpose console attaches to any wall for support and provides a sleek and functional solution for keeping important items at hand while giving your modern kitty the ultimate place to perch and scratch!<br/><br/>We offer custom fit FLOR carpet tiles that are easy to replace if it get’s worn or if you just want to change the color to switch-up your décor!",
+        "id": "standard"  
+    }, 
+    {
+        "name": "Circa50:CompactI", 
+        "subtitle": "Pet House",
+        "imageUrl": "img/products/compactI1.jpg", 
+        "description": "The Modernist Cat Circa50: Console is perfect for any room in your home and ideal for small spaces! Designed by Crystal Gregory, this dual purpose console attaches to any wall for support and provides a sleek and functional solution for keeping important items at hand while giving your modern kitty the ultimate place to perch and scratch!<br/><br/>We offer custom fit FLOR carpet tiles that are easy to replace if it get’s worn or if you just want to change the color to switch-up your décor!",
+        "id": "compactI"  
+    }, 
+    {
+        "name": "Circa50:CompactII", 
+        "subtitle": "Pet House",
+        "imageUrl": "img/products/compactII1.jpg", 
+        "description": "The Modernist Cat Circa50: Console is perfect for any room in your home and ideal for small spaces! Designed by Crystal Gregory, this dual purpose console attaches to any wall for support and provides a sleek and functional solution for keeping important items at hand while giving your modern kitty the ultimate place to perch and scratch!<br/><br/>We offer custom fit FLOR carpet tiles that are easy to replace if it get’s worn or if you just want to change the color to switch-up your décor!",
+        "id": "compactII"  
+     }
+   
+]

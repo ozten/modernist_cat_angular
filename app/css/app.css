@@ -1,0 +1,188 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+/*FROM EMBER APP */
+@font-face {
+    font-family: 'WhitehallRegular';
+    src: url('fonts/whitehall-webfont.eot');
+    src: url('fonts/whitehall-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/whitehall-webfont.woff') format('woff'),
+         url('fonts/whitehall-webfont.ttf') format('truetype'),
+         url('fonts/whitehall-webfont.svg#WhitehallRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'RedressedRegular';
+    src: url('fonts/Redressed-webfont.eot');
+    src: url('fonts/Redressed-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Redressed-webfont.woff') format('woff'),
+         url('fonts/Redressed-webfont.ttf') format('truetype'),
+         url('fonts/Redressed-webfont.svg#RedressedRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+/*** modernistcat ****/
+body  {color:rgb(49, 49, 47);}
+h1, h2, h3, h4, h5, h6 {color:rgb(103, 104, 88);}
+
+nav ul li { float: left; display: block; margin-right: 15px;}
+#content { clear: both; }
+
+.alt {
+  display:block;
+  text-indent: -99999px;
+}
+
+.clear {clear:both;}
+
+/*header*/
+.logo {
+  background:url('images/layout/logo.png') no-repeat 0 0;
+  width:400px;
+  height:100px;
+  background-size:400px auto; 
+  float:left
+}
+.social{
+  background:url('images/layout/socialicons.png') no-repeat 0 0;
+  height:22px;
+  width:22px;
+ }
+.social.twitter {background-position:0 0;}
+.social.facebook {background-position:0 -30px;}
+
+.social.pinterest {background-position:0 -60px;}
+
+/* product list */
+.horizontal li {float:left;}
+.productList img {width:125px;}
+
+
+/*product pages*/
+.product h2 {
+  font-family: 'Handlee', cursive;
+  font-weight: normal;
+}
+
+.prices {
+  border-top:1px solid #676858;
+  border-bottom:1px solid #676858;
+  margin-top:6px;
+  padding: 12px 0px;
+}
+#price {
+  padding:2px 0px;
+  display:inline-block;
+}
+
+.button {
+  padding:2px 4px;
+  background-color:#C8BE38;
+  font-weight:normal;
+  border-color:#676858;
+}
+
+.thumbs li {
+  float:left;
+  width:100px;
+  padding-right:6px;
+  padding-top:3px;
+  cursor:pointer;
+}
+/* Tabs */
+.nav-tabs {
+  list-style: none;
+  float:left;
+  width:100%;
+  background-color: rgb(215, 215, 215);
+  
+}
+.nav-tabs li {
+  float:left;
+  padding:6px 12px;
+  cursor:pointer;
+}
+.nav-tabs li:hover {
+  background-color:rgb(235, 235, 235);
+}
+
+.nav-tabs li.active {
+  background-color: white;
+  cursor:default;
+}
+.tab-content {
+  clear:left;
+}
+.tab-content ul {
+  padding-left:40px;
+}
+
+
+/* options */
+li.tile  {
+  height:20px;
+  width:20px;
+  float:left;
+  margin-right:3px;
+  text-indent: -999999px;
+  border:1px solid #676858;
+
+}
+
+li.tile.active, li.tile.selected-hover {
+  border-width: 3px;
+}
+
+li[class*='scratch'] {
+  background:url('images/samples/carpet.jpg') 0 0 no-repeat;
+}
+li.scratch0 {background-position: 0 0} 
+li.scratch1 {background-position: 0 -155px}
+li.scratch2 {background-position: 0 -305px}
+li.scratch3 {background-position: 0 -455px}
+li.scratch4 {background-position: 0 -605px}
+
+li[class*='laminate'] {
+  background:url('images/samples/laminate.jpg') 0 0 no-repeat;
+}
+li.laminate0 {background-position: -67px 0} 
+li.laminate1 {background-position: -67px -155px}
+li.laminate2 {background-position: -67px -305px}
+li.laminate3 {background-position: -67px -455px}
+li.laminate4 {background-position: -67px -605px}
+
+
