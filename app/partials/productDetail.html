@@ -1,10 +1,10 @@
- <div class="row">
+      <div class="row">
         <div class="six columns images">
           <img ng-src="{{mainImageUrl}}">
           <ul class="thumbs no-bullet">
           	<li ng-repeat="img in product.images">
           		<img ng-src="{{img}}" ng-click="setImage(img)">
-          	</li>	
+          	</li>
           </ul>
         </div>
         <div class="six columns product">
@@ -13,7 +13,7 @@
           <ul class="no-bullet">
           <li>{{ product.description }}</li>
           </ul>
-        
+
           <div class="six columns">
             <h5>Configuration Options</h5>
             <ul ng-repeat="optionType in product.options" class="no-bullet" ng-controller="ProductSelectionCtrl"><li>{{options[optionType].title}}</li><li ng-repeat="choice in options[optionType].choices" class="{{optionType}}{{$index}} {{options[optionType].type}}" ng-class="{active: isActive(choice)}" ng-click="select(choice)" enter="switchImage('{{product.id}}','{{optionType}}', '{{choice}}')" chooser layout="{{options[optionType].type}}">{{choice}}</li><li chooser>{{selected}}</li></ul>
@@ -27,20 +27,19 @@
 			</ul>
           </div>
 
-          
+
         <div class="row">
         <div class="twelve columns prices">
           <span id="price">${{ selectionPrice }}</span>
-          <div class="right button"><a href="https://stage.wepayapi.com/v2/checkout/create">Buy something Now</a></div>
-          
+          <div class="right button"><a href="http://ozten.com/random/modernistcat/cart/?product_id=console&scratch=Bark&door=rectangle&entSide=right&laminate=Walnut&additional_scratch=false">Checkout</a></div>
          </div>
         <div class="clear">
 		<tabs>
-			
-			<pane ng-repeat="pane in product.details" heading="{{pane.title}}" active="$index == 0"><ul><li ng-repeat="item in pane.content">{{item}}</li></ul></pane>
-		</tabs>	
 
-        
+			<pane ng-repeat="pane in product.details" heading="{{pane.title}}" active="$index == 0"><ul><li ng-repeat="item in pane.content">{{item}}</li></ul></pane>
+		</tabs>
+
+
           </div>
       </div>
-      </div>
+    </div>
