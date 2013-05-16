@@ -22,6 +22,7 @@ app.controller("ProductDetailCtrl", function($scope, $routeParams, $http, JsonSe
 
 	$scope.choiceValues = {};
 	$scope.addonValues = {};
+	$scope.addonsSelected = {};
 
 	$scope.addonPrice = 0;
 	$scope.addonString = "";	
@@ -35,7 +36,7 @@ app.controller("ProductDetailCtrl", function($scope, $routeParams, $http, JsonSe
 		sel = sel.replace(/&|\s+/g, '');
 		sel = sel.toLowerCase();
 		var imageUrl = "img/products/switches/" + id + "-"  + opt + "-" + sel + ".jpg";
-		console.log(imageUrl);
+		
 		$scope.mainImageUrl = imageUrl;
 	}
 
@@ -44,21 +45,21 @@ app.controller("ProductDetailCtrl", function($scope, $routeParams, $http, JsonSe
 		
 	});
 	
-	$scope.updatePrice = function(val, pr, title, sel){
-		console.log(val, title);
+	$scope.updatePrice = function(val, pr, title){
+		
 		$scope.totalPrice = $scope.selectionPrice
 	
 		var price = parseInt(pr);
 
 		//todo figure out why this is showing the opposite value
 		if (val == "false") {
-			$scope.addonPrice += price;
-			$scope.addonValues[title] = $scope.selected;
-			//Todo keep track of what is checked and their values separately???
+			$scope.addonPrice += price;			
+			//which item is checked
+			$scope.addonsSelected[title] = true;			
 		} else {
 			$scope.addonPrice -= price;
-			$scope.addonValues[title] = null;
-			//$scope.selected = null;
+			//which item is checked
+			$scope.addonsSelected[title] = false;
 		}
 		$scope.totalPrice += $scope.addonPrice; 
 		if ($scope.totalPrice != $scope.selectionPrice) {
@@ -68,7 +69,26 @@ app.controller("ProductDetailCtrl", function($scope, $routeParams, $http, JsonSe
 		}
 	}
 
-	
+	$scope.validateSelections = function(){
+		//check configuration choices
+		var availOptions = $scope.product.options;
+		for (var i=0; i < availOptions.length; i++){
+			var title = $scope.options[availOptions[i]].title
+			var sel = ($scope.choiceValues[title]);
+			if (sel == undefined){
+				alert("Please select " + title);
+			} 
+		}
+		//check addons if true, must make a selection
+		var addons = $scope.product.addons;
+		for (var i=0; i < addons.length; i++){
+			var title = addons[i].title;
+			var sel = $scope.addonValues[title];
+			if ($scope.addonsSelected[title] == true && sel == undefined && addons[i].options != null){
+					alert("Please select " + addons[i].title);				
+			}
+		}
+	}
 	
 });
 
@@ -81,6 +101,8 @@ function ProductSelectionCtrl ($scope){
 		}
 
 }
+
+
 
 
 

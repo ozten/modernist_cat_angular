@@ -38,7 +38,6 @@ app.directive("chooser", function($compile) {
 					if (value=="radio"){
 						var input = '<input type="radio" name="' + scope.optionType + '">';
 						var html = $compile(input)(scope);
-						console.log("radio:", html)
 						element.prepend(html);
 					}
 				})
