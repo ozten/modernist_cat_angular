@@ -16,23 +16,24 @@
         
           <div class="six columns">
             <h5>Configuration Options</h5>
-            <ul ng-repeat="optionType in product.options" class="no-bullet" ng-controller="ProductSelectionCtrl"><li>{{options[optionType].title}}</li><li ng-repeat="choice in options[optionType].choices" class="{{optionType}}{{$index}} {{options[optionType].type}}" ng-class="{active: isActive(choice)}" ng-click="select(choice)" enter="switchImage('{{product.id}}','{{optionType}}', '{{choice}}')" chooser layout="{{options[optionType].type}}">{{choice}}</li><li chooser>{{selected}}</li></ul>
+            <ul ng-repeat="optionType in product.options" class="no-bullet" ng-controller="ProductSelectionCtrl"><li>{{options[optionType].title}}</li><li ng-repeat="choice in options[optionType].choices" class="{{optionType}}{{$index}} {{options[optionType].type}}" ng-class="{active: isActive(choice)}" ng-model="choiceValues[optionType]" ng-click="select(choice)" enter="switchImage('{{product.id}}','{{optionType}}', '{{choice}}')" chooser layout="{{options[optionType].type}}">{{choice}}</li><li>{{selected}}</li></ul>
           </div>
           <div class="six columns">
             <h5>Addons</h5>
 			<ul ng-repeat="addonType in product.addons" class="no-bullet">
-				<li><input type="checkbox" ng-click="toggleAddons(addonType.price)">{{addonType.title}}: (${{addonType.price}})
-					<ul class="no-bullet" ng-controller="ProductSelectionCtrl" ng-show="isVisible"><li ng-repeat="choice in options[addonType.options].choices" class="{{addonType.options}}{{$index}} {{options[addonType.options].type}}" ng-class="{active: isActive(choice)}" ng-click="select(choice)" chooser layout="{{options[optionType].type}}">{{choice}}</li><li chooser>{{selected}}</li><li class="notes">{{addonType.description}}</li></ul>
+				<li><input type="checkbox" ng-model="addons" ng-change="updatePrice('{{addons}}','{{addonType.price}}', '{{addonType.title}}')">{{addonType.title}}: (${{addonType.price}})
+					<ul class="no-bullet" ng-controller="ProductSelectionCtrl" ng-show="addons"><li ng-repeat="choice in options[addonType.options].choices" class="{{addonType.options}}{{$index}} {{options[addonType.options].type}}" ng-class="{active: isActive(choice)}" ng-click="select(choice)" ng-model="addonValues[addonType.title]" chooser layout="{{options[optionType].type}}">{{choice}}</li><li>{{selected}}</li><li class="notes">{{addonType.description}}</li></ul>
 				</li>
 			</ul>
           </div>
 
           
         <div class="row">
+
         <div class="twelve columns prices">
-          <span id="price">${{ selectionPrice }}</span>
+          <span id="price">${{ selectionPrice }} {{ addonString }} </span>
           <div class="right button"><a href="https://stage.wepayapi.com/v2/checkout/create">Buy something Now</a></div>
-          
+          <div>All Selections: {{ totalPrice }} {{choiceValues}} {{addonValues}} </div>
          </div>
         <div class="clear">
 		<tabs>

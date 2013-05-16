@@ -10,11 +10,22 @@ function ProductListCtrl ($scope, $http) {
 }
 /* each product detail */
 app.controller("ProductDetailCtrl", function($scope, $routeParams, $http, JsonService) {
+	$scope.selectionPrice = 0;
+	$scope.totalPrice = 0;
 	$http.get('products/' + $routeParams.productId + '.json').success(function(data){
 		$scope.product = data;
 		$scope.mainImageUrl = data.images[0];
 		$scope.selectionPrice = data.price;
+		$scope.totalPrice = $scope.selectionPrice;
+
 	});
+
+	$scope.choiceValues = {};
+	$scope.addonValues = {};
+
+	$scope.addonPrice = 0;
+	$scope.addonString = "";	
+	$scope.addons = false;
 
 	$scope.setImage = function(imageUrl) {
 		$scope.mainImageUrl = imageUrl;
@@ -33,19 +44,32 @@ app.controller("ProductDetailCtrl", function($scope, $routeParams, $http, JsonSe
 		
 	});
 	
-	$scope.toggleAddons = function(pr){
-		console.log("toggleAddons")
-		$scope.isVisible = ! $scope.isVisible;
+	$scope.updatePrice = function(val, pr, title, sel){
+		console.log(val, title);
+		$scope.totalPrice = $scope.selectionPrice
+	
 		var price = parseInt(pr);
-		if ($scope.isVisible == true){
-			$scope.selectionPrice += price;
-			console.log($scope.selectionPrice);
+
+		//todo figure out why this is showing the opposite value
+		if (val == "false") {
+			$scope.addonPrice += price;
+			$scope.addonValues[title] = $scope.selected;
+			//Todo keep track of what is checked and their values separately???
 		} else {
-			$scope.selectionPrice -= price;
-			console.log($scope.selectionPrice);
+			$scope.addonPrice -= price;
+			$scope.addonValues[title] = null;
+			//$scope.selected = null;
+		}
+		$scope.totalPrice += $scope.addonPrice; 
+		if ($scope.totalPrice != $scope.selectionPrice) {
+			$scope.addonString = "+ $" + $scope.addonPrice +  " = $" + $scope.totalPrice;
+		} else {
+			$scope.addonString = "";
 		}
 	}
-	$scope.isVisible = false;
+
+	
+	
 });
 
 function ProductSelectionCtrl ($scope){
