@@ -29,7 +29,7 @@
   padding: 0;
 }
 
-/*FROM EMBER APP */
+
 @font-face {
     font-family: 'WhitehallRegular';
     src: url('fonts/whitehall-webfont.eot');
@@ -68,6 +68,7 @@ nav ul li { float: left; display: block; margin-right: 15px;}
 }
 
 .clear {clear:both;}
+.link {cursor:pointer;}
 
 /*header*/
 .logo {

@@ -6,12 +6,13 @@
           		<img ng-src="{{img}}" ng-click="setImage(img)">
           	</li>	
           </ul>
+          <pinit img={{mainImageUrl}} caption={{product.pinitcaption}} prodid={{product.id}}><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png"></img></pinit>
         </div>
         <div class="six columns product">
           <h2><span>{{ product.name }}</span></h2>
           <h4>{{ product.subtitle }}</h4>
           <ul class="no-bullet">
-          <li>{{ product.description }}</li>
+          <li ng-bind-html-unsafe="product.description"></li>
           </ul>
         
           <div class="six columns">
@@ -41,7 +42,6 @@
 			<pane ng-repeat="pane in product.details" heading="{{pane.title}}" active="$index == 0"><ul><li ng-repeat="item in pane.content">{{item}}</li></ul></pane>
 		</tabs>	
   
-  </tabset>
         
           </div>
       </div>

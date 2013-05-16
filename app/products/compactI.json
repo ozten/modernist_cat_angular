@@ -1,27 +1,27 @@
 {
-    "id": "standard",
-    "name": "Circa50:Standard",
+    "id": "compactI",
+    "name": "Circa50:CompactI",
     "subtitle": "Litter Hideaway & Pet House ",
     "description": "The Circa50 Modular Collection is modeled with Mid-Century design principals; styled yet simple, with utility and durability in mind. These cabinets can stand alone, stack or sit side-by-side in endless configurations to disguise unsightly litter pans, reduce litter tracking or be used as a place for your modern cat or dog to play, perch or sleep while fitting into your home's modern style.",
     "options": [
         "door",
         "entSide",
-        "laminate"
+        "laminate1"
     ],
     "addons": [
         {
             "title": "Interior Fleece Bed",
             "options": "fleece",
-            "price": "49"
+            "price": "29"
         }, {
             "title": "Exterior Lounge Pad",
             "options": "fabric",
-            "price": "49"
+            "price": "29"
         }
         , {
             "title": "Litter Pan",
             "options": null,
-            "price": "15"
+            "price": "10"
         }
     ],
     "price": 599,
@@ -42,8 +42,8 @@
         {
             "title": "Specifications",
             "content": [
-                "25½\"W x 18½\"D x 24½\"H",
-                "Interior: 24\"L x 17\"W",
+                "13½\"W x 18½\"D x 24½\"H",
+                "Interior: 17\"L x 12\"W",
                 "Pet entrance edge: 5½\"",
                 "Removable Legs: 4\"H\""
             ]
@@ -57,7 +57,7 @@
             ]
         }
     ],
-    "pinitcaption" : "Circa50:Standard, Litter Hideaway and Pet House from ModernistCat.com",
+    "pinitcaption" : "Circa50:CompactI, Litter Hideaway and Pet House from ModernistCat.com",
     "images": [
         "img/products/standard1.jpg",
         "img/products/standard2.jpg",

@@ -47,6 +47,35 @@ app.directive("chooser", function($compile) {
 
 });
 
+app.directive("pinit", function(){
+	return {
+		restrict: 'E',
+		scope: {
+			img: "@",
+			prodid: "@",
+			caption: "@",
+			url: "@"		
+		},
+		templateUrl: 'partials/pinterest.html'
+	}
+})
+
+app.directive("newwindow", function(){
+	return {
+		restrict: 'E',
+		link: function(scope, element, attrs){
+			element.bind("click", function(){
+				console.log(attrs.href)
+				window.open(attrs.href, "Create Pin", 'width=600, height=400');
+				return false;
+				})
+		}
+	}
+
+	})
+
+
+
 
 
 
