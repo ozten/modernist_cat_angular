@@ -186,12 +186,22 @@ var ModalDemoCtrl = function ($scope) {
 
   $scope.opts = {
     backdropFade: true,
-    dialogFade:false,
-    
+    dialogFade:true
+
   };
 
 };
 
+function LinkListCtrl($scope, $routeParams, $http, JsonService) {
+
+$http.get('products/weblinks.json').success(function(data){
+  $scope.links = data;
+});
+
+$scope.onHomePage = function(link){
+    return (link.onHomePage == true);
+};
+};
 
 
 

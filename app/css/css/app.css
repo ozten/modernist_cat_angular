@@ -110,4 +110,13 @@ nav ul li { float: left; display: block; margin-right: 15px;}
 .scratch105 {background-position: 0 -605px}
 
 
+#footer {
+text-align:center;
+padding:20px;
+width:100%;
+background-color:#cccccc;
+font-size:.8em;
+}
+
+
 

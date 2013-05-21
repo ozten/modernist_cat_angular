@@ -94,6 +94,17 @@ nav ul li { float: left; display: block; margin-right: 15px;}
 .productList img {width:125px;}
 
 
+/* footer */
+#footer {
+text-align:center;
+padding:40px 20px;
+width:100%;
+border-top:1px solid #483e32;
+background-color:#fff;
+font-size:.8em;
+margin-top:20px;
+}
+
 /*product pages*/
 .product h2 {
   font-family: 'Handlee', cursive;
