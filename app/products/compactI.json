@@ -3,28 +3,29 @@
     "name": "Circa50:CompactI",
     "subtitle": "Litter Hideaway & Pet House ",
     "description": "The Circa50 Modular Collection is modeled with Mid-Century design principals; styled yet simple, with utility and durability in mind. These cabinets can stand alone, stack or sit side-by-side in endless configurations to disguise unsightly litter pans, reduce litter tracking or be used as a place for your modern cat or dog to play, perch or sleep while fitting into your home's modern style.",
-    "options": [
-        "door",
-        "entSide",
-        "laminate1"
-    ],
-    "addons": [
-        {
-            "title": "Interior Fleece Bed",
-            "options": "fleece",
-            "price": "29"
-        }, {
-            "title": "Exterior Lounge Pad",
-            "options": "fabric",
-            "price": "29"
-        }
-        , {
-            "title": "Litter Pan",
-            "options": null,
-            "price": "10"
-        }
-    ],
-    "price": 599,
+    "options": {
+        "door": {"title":"Pet Entrance Shape", "options": "door"},
+        "entSide":{"title":"Pet Entrance Side" ,"options": "entSide"},
+        "laminate" : {"title": "Door Finish", "options": "laminate1"}
+    },
+    "addons": {
+            "fleece":{
+                "title": "Interior Fleece Bed",
+                "options": "fleece",
+                "price": 29
+            }, 
+            "elounge":{
+                "title": "Exterior Lounge Pad",
+                "options": "fabric",
+                "price": 29
+            }, 
+            "littermat":{
+                "title": "Litter Mat",
+                "options": null,
+                "price": 10
+            }
+    },
+    "price": 449,
     "details": [
         {
             "title": "Features",
@@ -59,8 +60,8 @@
     ],
     "pinitcaption" : "Circa50:CompactI, Litter Hideaway and Pet House from ModernistCat.com",
     "images": [
-        "img/products/standard1.jpg",
-        "img/products/standard2.jpg",
-        "img/products/standard3.jpg"
+        "img/products/compactI1.jpg",
+        "img/products/compactI2.jpg",
+        "img/products/compactI3.jpg"
     ]
 }

@@ -5,11 +5,13 @@
 
     <!-- Set the viewport width to device width for mobile -->
     <meta name="viewport" content="width=device-width" />
+    <meta name="fragment" content="!" />
 
     <title>Modernist Cat: Made for pets. Designed for you.</title>
 
     <!-- Included CSS Files (Compressed) -->
     <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/bootstrap-ui.css">
     <link rel="stylesheet" href="css/app.css">
     <link href='http://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
     <!--<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">-->
@@ -30,10 +32,11 @@
         </div>
         <div class="row" id="content"><div ng-view></div></div>
       </div>
+      <div class="row">
       <div id="footer">Copyright 2013 Modernist Cat | site designed and developed by Patty OHara</div>
-  
+      </div>
 
-  <div>Angular seed app: </div>
+
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>

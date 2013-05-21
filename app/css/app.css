@@ -69,6 +69,7 @@ nav ul li { float: left; display: block; margin-right: 15px;}
 
 .clear {clear:both;}
 .link {cursor:pointer;}
+.floatleft {float:left;}
 
 /*header*/
 .logo {
@@ -151,6 +152,38 @@ nav ul li { float: left; display: block; margin-right: 15px;}
 .tab-content ul {
   padding-left:40px;
 }
+/* form */
+ul.form {
+  list-style:none;
+}
+.form input {
+  width:100%;
+}
+.form .columns {
+  padding:0px 12px 12px 0px;
+}
+.form .columns.last{
+  padding-right:0px;
+}
+.stripe-button-el {
+    -moz-user-select: none;
+    background-image: linear-gradient(#2284A1, #015E94);
+    border: 0 none;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 1px;
+    text-decoration: none;
+    visibility: visible !important;
+}
+
+/*product detail layout */
+.selection.radio, .selection.radioprice {
+  display:none;
+}
+
 
 
 /* options */
@@ -185,6 +218,17 @@ li.laminate1 {background-position: -67px -155px}
 li.laminate2 {background-position: -67px -305px}
 li.laminate3 {background-position: -67px -455px}
 li.laminate4 {background-position: -67px -605px}
+
+li[class*='laminateB'] {
+  background:url('images/samples/laminate.jpg') 0 0 no-repeat;
+}
+li.laminateB0 {background-position: -90px 0} 
+li.laminateB1 {background-position: -90px -155px}
+li.laminateB2 {background-position: -90px -305px}
+li.laminateB3 {background-position: -90px -455px}
+li.laminateB4 {background-position: -90px -605px}
+li.laminateB5 {background-position: -90px -755px}
+
 
 li[class*='fleece'] {
   background:url('images/samples/fleece.jpg') 0 0 no-repeat;

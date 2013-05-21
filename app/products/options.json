@@ -1,10 +1,12 @@
 {
-	"scratch" : {"title":"Scratch", "type": "tile", "choices" :["Bark", "Teal", "Tangerine", "Bone", "Kiwi"]},
-	"door" : {"title":"Door", "type": "radio", "choices" :["rectangle", "circle"]},
-	"entSide" : {"title":"Entrance Side","type": "radio", "choices" :["right", "left"]},
-	"laminate" : {"title":"Door Finish", "type": "tile", "choices": ["Walnut", "White", "Poppy & Orange", "Robin & Space", "Mint & Pear"]},
-	"laminate1" : {"title":"Door Finish", "type": "tile", "choices": ["Walnut", "White", "Orange", "Space", "Pear"]},
-	"fleece" : {"title":"Interior Fleece Bed", "type": "tile", "choices": ["Camel", "DM Red", "Chocolate", "Black", "Aruba Blue"]},
-	"fabric" :  {"title":"Exterior", "type": "tile", "choices": ["Chipper Black", "Chipper Stone", "Chipper Cloud"]},
-	"litterPan" : {"title" : "Litter Pan", "type":"checkbox"}
+	"scratch" : {"type": "tile", "class":"scratch", "choices" :["Bark", "Teal", "Tangerine", "Bone", "Kiwi"]},
+	"door" : {"type": "radio", "choices" :["rectangle", "circle"]},
+	"entSide" : {"type": "radio", "choices" :["right", "left"]},
+	"laminate" : {"type": "tile", "class":"laminate", "choices": ["Walnut", "White", "Poppy & Orange", "Robin & Space", "Mint & Pear"]},
+	"laminate1" : {"type": "tile", "class":"laminateB", "choices": ["Walnut", "White", "Orange", "Space", "Pear"]},
+	"laminate2" : {"type": "tile", "class":"laminateB", "choices": ["Walnut", "White", "Orange", "Space", "Pear", "Charcoal"]},
+	"fleece" : {"type": "tile", "class":"fleece", "choices": ["Camel", "DM Red", "Chocolate", "Black", "Aruba Blue"]},
+	"fabric" :  {"type": "tile", "class":"fabric", "choices": ["Chipper Black", "Chipper Stone", "Chipper Cloud"]},
+	"litterPan" : {"type":"checkbox"},
+	"size" : {"type":"radioprice", "class":"size", "choices": ["Single", "Double", "Triple"], "price":[59, 79, 99], "selected":1}
 }

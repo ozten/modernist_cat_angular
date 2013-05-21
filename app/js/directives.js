@@ -30,15 +30,25 @@ app.directive("chooser", function($compile) {
 				
 
 				attrs.$observe('layout', function(value){
-					if(value == "tile"){
+					if(value.indexOf("tile") != -1) {
 						element.bind("mouseenter mouseleave", function(){
 							element.toggleClass('selected-hover')
 							});	
 					}
-					if (value=="radio"){
-						var input = '<input type="radio" name="' + scope.optionType + '">';
+					if (value.indexOf("radio") != -1){
+						var id = value.split('-');
+						var checked = "";
+						if(id[1] == scope.options[scope.optionType.options].selected) { 
+							checked = "checked='true'"
+						}
+						var input = '<input type="radio" name="' + scope.optionType.title + '" value="' + id[1] + '"' + checked + '>';
 						var html = $compile(input)(scope);
 						element.prepend(html);
+					}
+					if (value.indexOf("radioprice") != -1){
+						element.bind("click", function(){
+							scope.$apply(attrs.update);	
+						})
 					}
 				})
 		}

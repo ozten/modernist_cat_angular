@@ -1,0 +1,54 @@
+{
+    "id": "petcrate",
+    "name": "Circa50:Dwell",
+    "subtitle": "Dog Crate & Pet House",
+    "description": "Finally, a mid century modern pet crate that not only blends into your modern home, but also accentuates the overall look!  Say goodbye to your old plastic eyesore.  The Circa50: Dwell incorporates the need for a crate with your lifestyle without compromising your standards for furniture quality and beauty. ",
+    "options": {
+        "fleece": {"title":"Interior Fleece Bed", "options" : "fleece"}
+    },
+    "addons": [
+         
+    ],
+    "price": 699,
+    "details": [
+        {
+            "title": "Features",
+            "content": [
+                "Stackable & Modular",
+                "Hinged doors for easy access",
+                "Right-hand side OR left-hand side pet entrance",
+                "Holes on either side allow for ventilation and easy moving",
+                "Handcrafted with 3/4\" Walnut Hardwood veneer Euro Ply",
+                "Water resistant finish wipes clean",
+                "Optional removable 1\" foam cushion in your choice of fabric",
+                "Optional removable 2\" foam bed with washable fleece cover "
+            ]
+        },
+        {
+            "title": "Specifications",
+            "content": [
+                "25½\"W x 18½\"D x 24½\"H",
+                "Dogs up to: 25lbs",
+                "Interior: 22\"W x 17\"D x 19\"H",
+                "Pet entrance: 11½\"W x 13\"H",
+                "Pet entrance edge: 3¾\"H",
+                "Removable Legs: 4\"H",
+                "Side Slats: 2½\"H x 18\"W"
+            ]
+        },
+        {
+            "title": "Shipping",
+            "content": [
+                "Items ship free, fully assembled (Continental US only)",
+                "Please allow 2-3 weeks for delivery",
+                "For international shipping rates, please contact me for a quote"
+            ]
+        }
+    ],
+    "pinitcaption" : "Circa50:Dwell, Pet Crate from ModernistCat.com",
+    "images": [
+        "img/products/petcrate1.jpg",
+        "img/products/petcrate2.jpg",
+        "img/products/petcrate3.jpg"
+    ]
+}

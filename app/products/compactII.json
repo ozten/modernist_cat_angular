@@ -1,0 +1,66 @@
+{
+    "id": "compactII",
+    "name": "Circa50:CompactII",
+    "subtitle": "Litter Hideaway & Pet House ",
+    "description": "The Circa50 Modular Collection is modeled with Mid-Century design principals; styled yet simple, with utility and durability in mind. These cabinets can stand alone, stack or sit side-by-side in endless configurations to disguise unsightly litter pans, reduce litter tracking or be used as a place for your modern cat or dog to play, perch or sleep while fitting into your home's modern style.",
+    "options": {
+        "door": {"title":"Pet Entrance Shape", "options": "door"},
+        "laminate" : {"title": "Door Finish", "options": "laminate1"}
+    },
+    "addons": {
+            "fleece":{
+                "title": "Interior Fleece Bed",
+                "options": "fleece",
+                "price": 29
+            }, 
+            "elounge":{
+                "title": "Exterior Lounge Pad",
+                "options": "fabric",
+                "price": 29
+            }, 
+            "littermat":{
+                "title": "Litter Mat",
+                "options": null,
+                "price": 19
+            }
+    },
+    "price": 449,
+    "details": [
+        {
+            "title": "Features",
+            "content": [
+                "Stackable & Modular",
+                "Hinged doors for easy access",
+                "Pet entrance on both sides ",
+                "Holes on either side allow for ventilation and easy moving",
+                "Handcrafted with 3/4\" Walnut Hardwood veneer Euro Ply",
+                "Water resistant finish wipes clean",
+                "Optional removable 1\" foam cushion in your choice of fabric",
+                "Optional removable 2\" foam bed with washable fleece cover "
+            ]
+        },
+        {
+            "title": "Specifications",
+            "content": [
+                "13½\"W x 18½\"D x 24½\"H",
+                "Interior: 17\"L x 12\"W",
+                "Pet entrance edge: 5½\"",
+                "Removable Legs: 4\"H\""
+            ]
+        },
+        {
+            "title": "Shipping",
+            "content": [
+                "Items ship free, fully assembled (Continental US only)",
+                "Please allow 2-3 weeks for delivery",
+                "For international shipping rates, please contact me for a quote"
+            ]
+        }
+    ],
+    "pinitcaption" : "Circa50:CompactII, Litter Hideaway and Pet House from ModernistCat.com",
+    "images": [
+        "img/products/compactII1.jpg",
+        "img/products/compactII2.jpg",
+        "img/products/compactII3.jpg"
+    ]
+}

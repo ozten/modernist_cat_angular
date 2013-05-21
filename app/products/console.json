@@ -3,8 +3,17 @@
   "name": "Circa50:Console",
   "subtitle": "Pet Scratcher",
   "description": "The Modernist Cat Circa50: Console is perfect for any room in your home and ideal for small spaces! Designed by Crystal Gregory, this dual purpose console attaches to any wall for support and provides a sleek and functional solution for keeping important items at hand while giving your modern kitty the ultimate place to perch and scratch!<br/><br/>We offer custom fit scratch pad surfaces that are replaceable if it get’s worn or if you just want to change the color to switch-up your décor!",
-  "options": ["scratch"],
-  "addons": [{"options": "scratch", "title":"Order Additional Carpet Swatch","description":"Can't find the color or style you need? Please inquire for additional options.",  "price": 29}],
+  "options": {
+    "scratch" : {"title":"Scratch Pad Surface", "options": "scratch"}
+    },
+  "addons": {
+    "scratch2" : {
+        "options": "scratch", 
+        "title":"Replacement Scratch Pad Surface - Includes Hardware",
+        "description":"Can't find the color or style you need? Please inquire for additional options.",  
+        "price": 29
+        }
+  },
   "price": 399,
   "details":[{
       "title" : "Features",

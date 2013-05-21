@@ -1,0 +1,51 @@
+{
+    "id": "feeder",
+    "name": "Circa50:Diner",
+    "subtitle": "Elevated Pet Feeder",
+    "description": "Our Mid-Century Modern raised pet feeder comes in 3 sizes and 6 retro colors that add simple, lively style to both your pet’s dining area and overall décor!",
+    "options": {
+        "asize" : {"title":"Feeder Size", "options": "size"},
+        "laminate" : {"title": "Laminate", "options": "laminate2"}      
+    },
+    "addons": {}
+    ,
+    "price": 79,
+    "details": [
+        {
+            "title": "Features",
+            "content": [
+                "Handcrafted with Walnut Hardwood veneer Euro Ply",
+                "Water resistant finish",
+                "Your choice of colored laminate top",
+                "Stainless steel bowls included"
+            ]
+        },
+        {
+            "title": "Specifications",
+            "content": [
+                "Single 6½\"W x 7½\"L x 4½\"H",
+                "Double 6½\"W x 15\"L x 4½\"H",
+                "Triple 6½\"W x 22½\"L x 4½\"H",
+                "Pint size bowls – 16oz"
+            ]
+        },
+        {
+            "title": "Shipping",
+            "content": [
+                "Items ship free, fully assembled (Continental US only)",
+                "Please allow 1-2 weeks for delivery",
+                "For international shipping rates, please contact me for a quote"
+            ]
+        }
+    ],
+    "pinitcaption" : "Circa50:Diner, Elevated Pet Feeder from ModernistCat.com",
+    "images": [
+        "img/products/feeder1.jpg",
+        "img/products/feeder2.jpg",
+        "img/products/feeder3.jpg",
+        "img/products/feeder4.jpg",
+        "img/products/feeder5.jpg",
+        "img/products/feeder6.jpg",
+        "img/products/feedersizes.jpg"
+    ]
+}
