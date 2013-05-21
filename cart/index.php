@@ -1,36 +1,97 @@
-
 <?php include 'header.php'; ?>
 
 <?
-
 require_once('./config.php');
 
-// Load Product databse
-// Validate inputs
+// Validate product id
+// TODO check no '/' exist...
 $product_id = $_GET['product_id'];
-$options = $_GET['options'];
-$addonsSelected = $_GET['addonsSelected'];
-$addonValues = $_GET['addonValues'];
 
-// From Database after validation or Config (Security sensative)
-$price = 59900;
-$description = "Long Circa50: Standard ($599.00)";
+$total_price = 0;
+
+// Load Product databse
+$rawJson = file_get_contents('../app/products/' . $product_id . '.json');
+if ($rawJson == FALSE) {
+  die('No such product');
+}
+
+// Our Databases are from our .json files
+$productDb = json_decode($rawJson);
+$optionsDb = json_decode(file_get_contents('../app/products/options.json'));
+
+if ($productDb->price) {
+    $total_price += $productDb->price;
+} else {
+    die('Produce database error, no price');
+}
+
+// Things that can change the price
+// On the feeder - size affects price... Default to Double if no 'asize' present
+// addons - addonsSelected that come in as true
+// $product_id.json->addons->$addon_name->price
+
+$choiceValues = json_decode($_GET['choiceValues']);
+
+// Feeders size affect price
+if ($product_id == 'feeder') {
+    $size = 'Double';
+    if ($choiceValues && $choiceValues->asize) {
+        if (in_array($choiceValues->asize, $optionsDb->size->choices)) {
+	    $size = $choiceValues->asize;
+	    echo "Setting to size $size";
+        } else {
+   	    die('Invalid size, invalid option');
+        }
+    }
+    // price code will be 0, 1, or 2
+    $priceCode = array_search($size, $optionsDb->size->choices);
+    $total_price += $optionsDb->size->price[$priceCode];
+}
+
+//addonsSelected={}&
+// Decode this one as an array instead of an Object
+// to make looping over keys easier
+$addonsSelected = json_decode($_GET['addonsSelected'], TRUE);
+
+foreach($addonsSelected as $addon => $value) {
+    if ($value == 'true') {
+        if ($productDb->addons->{$addon}) {
+            $total_price += $productDb->addons->{$addon}->price;
+        } else {
+            die('Invalid addon');
+        }
+    }
+}
+
+// Validate Options and Addons which don't affect the price
+$options = json_decode($_GET['options']);
+//options={"scratch": "Bark"}
+if ($options->scratch) {
+    if (in_array($options->scratch, $optionsDb->scratch->choices) == FALSE) {
+        die('Invalid scratch choice');
+    }
+}
+
+//addonValues={}
+$addonValues = json_decode($_GET['addonValues']);
+
+$stripe_description = $productDb->name . ' ' . $productDb->subtitle . ' total: $' . $total_price;
 
 ?>
 
 <form action="checkout.php" method="POST" id="payment-form">
   <!-- Crystal can get Customer's Name out of Stripe payment, or we can ask for it twice. -->
   <input name="product_id" value="<?= $product_id ?>" type="hidden" />
-  <input name="scratch"    value="<?= $scratch ?>" type="hidden" />
+  <? if ($options->scratch) { ?>
+    <input name="scratch"    value="<?= $options->scratch ?>" type="hidden" />
+  <? } ?>
   <input name="door"       value="<?= $door ?>" type="hidden" />
   <input name="ent_side"   value="<?= $ent_side ?>" type="hidden" />
   <input name="laminate"   value="<?= $laminate ?>" type="hidden" />
-  <input name="additional_scratch" value="<?= $additional_scratch ?>" type="hidden" />
+  <? if ($addonsSelected->scratch2) { ?>
+    <input name="additional_scratch" value="<?= $addonValues->scratch2 ?>" type="hidden" />
+  <? } ?>
 <div class="six columns">
-  <?= $product_id ?>
-  <?= $options ?>
-  <?= $addonsSelected ?>
-  <?= $addonValues ?>
 </div> 
 <div class="six columns"> 
   <fieldset>
@@ -77,14 +138,13 @@ $description = "Long Circa50: Standard ($599.00)";
       <textarea id="comments" name="comments" value="comments" cols="10" rows="3" ></textarea>
   </fieldset>
 
-
   <script
     src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
     data-key="<?= $STRIPE_PUBLISHABLE_KEY ?>"
-    data-amount="<?= $price ?>"
+    data-amount="<?= $total_price ?>"
     data-name="Modernistcat"
-    data-description="<?= $description ?>"
-    data-image="http://placekitten.com/128/128">
+    data-description="<?= $stripe_description ?>"
+    data-image="/app/<?= $productDb->images[0] ?>">
   </script>
 </form>
 </div>
