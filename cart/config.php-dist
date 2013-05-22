@@ -1,0 +1,6 @@
+<?
+/* Test Config */
+$STRIPE_SECRET_KEY = "your secret";
+$STRIPE_PUBLISHABLE_KEY = "your key";
+$CRYSTAL_EMAIL = "Someone <someone@gmail.com>";
+?>
