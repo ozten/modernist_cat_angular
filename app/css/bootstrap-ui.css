@@ -156,6 +156,20 @@
   font-size:.9em;
 }
 
+.carousel .btn.larger {
+  background:url('images/layout/mc-sprite.png') 0 0 no-repeat;
+  float:right;
+  width:20px;
+  height:20px;
+  text-indent: -9999999px;
+  border:none;
+  cursor: pointer;
+
+}
+.carousel .btn.larger:hover {
+  background-position:0 -20px;
+}
+
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -228,16 +242,33 @@
   border-bottom: 1px solid #eee;
   float:left;
   width:100%;
+  position: relative;
 }
-.modal-header .btn {
+.modal-header .btn.close {
+  position:absolute;
+  top:10px;
+  right:10px;
+  background:url('images/layout/mc-sprite.png') 0 -100px no-repeat;
   float:right;
+  width:22px;
+  height:22px;
+  text-indent: -9999999px;
+  border:none;
+  cursor: pointer;
 }
-
+.modal-header .btn.close:hover {
+  background-position: 0 -60px;
+}
 
 .modal-header h5 {
   margin: 0;
-  line-height: 30px;
+  line-height: 17px;
   float:left;
+}
+.modal-header div {
+float: left;
+padding-left: 12px;
+line-height: 17px;
 }
 
 .modal-body {
@@ -248,6 +279,11 @@
   clear:both;
 }
 
+.modal-body pinit {
+  position: absolute;
+  right:15px;
+  top:15px;
+}
 .modal-form {
   margin-bottom: 0;
 }

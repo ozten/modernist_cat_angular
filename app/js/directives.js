@@ -12,7 +12,10 @@ app.directive("thumbnail", function() {
 		},
 		restrict: "E",
 		transclude: true,
-		template: '<li class="three columns"><a href="#/products/{{prodid}}" title="{{subtitle}}" class="title"> {{name}}</a><a href="#/products/{{prodid}}" title="{{subtitle}}" class="title" ng-transclude></a></li>',
+		template: '<li class="product">'+
+					'<div class="thumbnail"><a href="#/products/{{prodid}}" title="{{subtitle}}" class="title" ng-transclude></a>' + 
+					'<div><span><a href="#/products/{{prodid}}" title="{{subtitle}}" class="title"> {{name}}</a><br/>{{subtitle}}</span>' + 
+					'</div></div></li>',
 		replace: true
 	}
 });
