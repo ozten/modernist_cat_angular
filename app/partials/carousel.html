@@ -10,29 +10,49 @@
           <button class="btn" ng-click="open()">Open me!</button>
           <div modal="shouldBeOpen" close="close()" options="opts">
               <div class="modal-inner">
-              <div class="modal-header">
-                  <h4>{{slide.image1.title}}</h4><button class="btn btn-warning cancel" ng-click="close()">Close</button>
-              </div>
-              <div class="modal-body">
-                  <img ng-src="{{slide.image1.image}}" style="margin:auto;">
-              </div>
-              <div class="modal-footer">
-                  
-              </div>
+                <div class="modal-header">
+                    <h5>{{slide.image1.title}}</h5>
+                    <a href="#/products/{{slide.image1.product}}">View Product</a>
+                    <pinit img={{slide.image1.image}} caption={{slide.image1.caption}} prodid={{product.id}}><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png"></img></pinit>
+                    <button class="btn btn-warning cancel" ng-click="close()">Close</button>
+                </div>
+                <div class="modal-body">
+                    <img ng-src="{{slide.image1.image}}" style="margin:auto;">
+                </div>
+                <div class="modal-footer">
+                    
+                </div>
             </div>
-            </div>
+          </div>
         </div>
       </div>
     </div>
-      <div class="slide-wrapper">
-      <a href="#/products/{{slide.image2.product}}">
-      <img ng-src="{{slide.image2.image}}" style="margin:auto;"></a>
+     <div class="slide-wrapper">
+      <a href="#/products/{{slide.image2.product}}"><img ng-src="{{slide.image2.image}}" style="margin:auto;"></a>
       <div class="carousel-caption">
         <h5>{{slide.image2.title}}</h5>
         <p>{{slide.image2.caption}}</p>
+        <div ng-controller="ModalDemoCtrl">
+          <button class="btn" ng-click="open()">Open me!</button>
+          <div modal="shouldBeOpen" close="close()" options="opts">
+              <div class="modal-inner">
+                <div class="modal-header">
+                    <h5>{{slide.image2.title}}</h5>
+                    <a href="#/products/{{slide.image2.product}}">View Product</a>
+                    <pinit img={{slide.image1.image}} caption={{slide.image1.caption}} prodid={{product.id}}><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png"></img></pinit>
+                    <button class="btn btn-warning cancel" ng-click="close()">Close</button>
+                </div>
+                <div class="modal-body">
+                    <img ng-src="{{slide.image2.image}}" style="margin:auto;">
+                </div>
+                <div class="modal-footer">
+                    
+                </div>
+            </div>
+          </div>
+        </div>
       </div>
-      
-      
+    </div>
     </slide>
   </carousel>  
 </div>
