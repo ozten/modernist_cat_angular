@@ -117,7 +117,7 @@ app.controller("ProductDetailCtrl", function($scope, $routeParams, $http, JsonSe
 			var options=JSON.stringify($scope.choiceValues);
 			var addonValues = JSON.stringify($scope.addonValues);
 			var addonsSelected = JSON.stringify($scope.addonsSelected);
-			var checkoutUrl = 'http://localhost:8888/cart/?product_id=' + $scope.product.id + '&options=' + encodeURIComponent(options) + '&addonsSelected=' + encodeURIComponent(addonsSelected) + '&addonValues=' + encodeURIComponent(addonValues);
+			var checkoutUrl = '/cart/?product_id=' + $scope.product.id + '&options=' + encodeURIComponent(options) + '&addonsSelected=' + encodeURIComponent(addonsSelected) + '&addonValues=' + encodeURIComponent(addonValues);
 			window.location = checkoutUrl;
 		} else {
 			return false;

@@ -66,10 +66,14 @@ app.directive("pinit", function(){
 		scope: {
 			img: "@",
 			prodid: "@",
-			caption: "@",
-			url: "@"		
+			caption: "@"		
 		},
-		templateUrl: 'partials/pinterest.html'
+		link: function (scope, element, attrs) {
+           scope.url = 'http://modernistcat.com';
+        },
+		template: '<newwindow class="link" href="//pinterest.com/pin/create/button/?url={{url}}/{{prodid}}&' + 
+		'media={{url}}/{{img}}&description={{caption}} from Modernistcat.com" data-pin-do="buttonPin" data-pin-config="none" >' +
+		'<img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></newwindow>'
 	}
 })
 
@@ -78,7 +82,6 @@ app.directive("newwindow", function(){
 		restrict: 'E',
 		link: function(scope, element, attrs){
 			element.bind("click", function(){
-				console.log(attrs.href)
 				window.open(attrs.href, "Create Pin", 'width=600, height=400');
 				return false;
 				})
