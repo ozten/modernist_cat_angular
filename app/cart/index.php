@@ -2,12 +2,11 @@
 
 <?
 require_once('./config.php');
+require_once('./cart.php');
 
 // Validate product id
 // TODO check no '/' exist...
 $product_id = $_GET['product_id'];
-
-$total_price = 0;
 
 // Load Product databse
 $rawJson = file_get_contents('../app/products/' . $product_id . '.json');
@@ -19,12 +18,6 @@ if ($rawJson == FALSE) {
 $productDb = json_decode($rawJson);
 $optionsDb = json_decode(file_get_contents('../app/products/options.json'));
 
-if ($productDb->price) {
-    $total_price += $productDb->price;
-} else {
-    die('Produce database error, no price');
-}
-
 // Things that can change the price
 // On the feeder - size affects price... Default to Double if no 'asize' present
 // addons - addonsSelected that come in as true
@@ -32,49 +25,62 @@ if ($productDb->price) {
 
 $choiceValues = json_decode($_GET['choiceValues']);
 
+// Default size for feeder... irrelevant for other products
+$feederSize = 'Double';
+
 // Feeders size affect price
 if ($product_id == 'feeder') {
-    $size = 'Double';
     if ($choiceValues && $choiceValues->asize) {
         if (in_array($choiceValues->asize, $optionsDb->size->choices)) {
-	    $size = $choiceValues->asize;
-	    echo "Setting to size $size";
+	    $feederSize = $choiceValues->asize;
         } else {
    	    die('Invalid size, invalid option');
         }
     }
-    // price code will be 0, 1, or 2
-    $priceCode = array_search($size, $optionsDb->size->choices);
-    $total_price += $optionsDb->size->price[$priceCode];
 }
 
-//addonsSelected={}&
 // Decode this one as an array instead of an Object
 // to make looping over keys easier
+
+// addonsSelected:{"elounge":true}
 $addonsSelected = json_decode($_GET['addonsSelected'], TRUE);
+
+//  addonValues:{"elounge":"Chipper Stone"} 
+$addonValues = json_decode($_GET['addonValues'], TRUE);
 
 foreach($addonsSelected as $addon => $value) {
     if ($value == 'true') {
+        $addonValue = $addonValues[$addon];
         if ($productDb->addons->{$addon}) {
-            $total_price += $productDb->addons->{$addon}->price;
+	    $addonKey = $productDb->addons->{$addon}->options;
+	    if (in_array($addonValue, $optionsDb->{$addonKey}->choices) == FALSE) {
+	        die('Invalid Addon choice, $addon cannot be $value for $product_id product');
+            }
         } else {
-            die('Invalid addon');
+            die('Invalid addon $addon is not valid for $product_id product');
         }
     }
 }
 
 // Validate Options and Addons which don't affect the price
-$options = json_decode($_GET['options']);
-//options={"scratch": "Bark"}
-if ($options->scratch) {
-    if (in_array($options->scratch, $optionsDb->scratch->choices) == FALSE) {
-        die('Invalid scratch choice');
+$options = json_decode($_GET['options'], TRUE);
+
+// All options must be valid for this product
+foreach($options as $option => $value) {
+    // Is this product allowed to have this option?
+
+    if (in_array($option, array_keys(get_object_vars($productDb->options)))) {
+        // Is the value of this option a legal value?
+        $optionKey = $productDb->options->{$option}->options;
+        if (in_array($value, $optionsDb->{$optionKey}->choices) == FALSE) {
+	    die("$option cannot be set to $value for the $product_id product");
+        }
+    } else {
+        die("$option option isn't valid for the $product_id product");
     }
 }
 
-//addonValues={}
-$addonValues = json_decode($_GET['addonValues']);
-
+$total_price = calcualte_total_price($product_id, $productDb, $optionsDb, $addonsSelected, $feederSize);
 $stripe_description = $productDb->name . ' ' . $productDb->subtitle . ' total: $' . $total_price;
 
 ?>
@@ -82,15 +88,20 @@ $stripe_description = $productDb->name . ' ' . $productDb->subtitle . ' total: $
 <form action="checkout.php" method="POST" id="payment-form">
   <!-- Crystal can get Customer's Name out of Stripe payment, or we can ask for it twice. -->
   <input name="product_id" value="<?= $product_id ?>" type="hidden" />
-  <? if ($options->scratch) { ?>
-    <input name="scratch"    value="<?= $options->scratch ?>" type="hidden" />
+  <input name="description" value="<?= $stripe_description ?>" />
+  <? if ($product_id == 'feeder') { ?>
+    <input name="feeder_size" value="$feederSize" type="hidden" />
   <? } ?>
-  <input name="door"       value="<?= $door ?>" type="hidden" />
-  <input name="ent_side"   value="<?= $ent_side ?>" type="hidden" />
-  <input name="laminate"   value="<?= $laminate ?>" type="hidden" />
-  <? if ($addonsSelected->scratch2) { ?>
-    <input name="additional_scratch" value="<?= $addonValues->scratch2 ?>" type="hidden" />
+
+  <? foreach($options as $option => $value) { ?>
+    <input name="option_<?= $option ?>" value="<?= $value ?>" type="hidden" />
   <? } ?>
+
+  <? foreach($addonsSelected as $addon => $value) { 
+        $addonValue = $addonValues[$addon]; ?>
+    <input name="addon_<?= $addon ?>" value="<?= $addonValue ?>" type="hidden" />
+  <? } ?>
+
 <div class="six columns">
 </div> 
 <div class="six columns"> 
@@ -141,7 +152,7 @@ $stripe_description = $productDb->name . ' ' . $productDb->subtitle . ' total: $
   <script
     src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
     data-key="<?= $STRIPE_PUBLISHABLE_KEY ?>"
-    data-amount="<?= $total_price ?>"
+    data-amount="<?= $total_price * 100 ?>"
     data-name="Modernistcat"
     data-description="<?= $stripe_description ?>"
     data-image="/app/<?= $productDb->images[0] ?>">
