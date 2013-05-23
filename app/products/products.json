@@ -10,38 +10,44 @@
         "name": "Circa50:Standard", 
         "subtitle": "Litter Hideaway & Pet House",
         "imageUrl": "img/products/standard1.jpg", 
-        "id": "standard"  
+        "id": "standard",
+        "price": "599" 
     }, 
     {
         "name": "Circa50:CompactI", 
         "subtitle": "Litter Hideaway & Pet House",
         "imageUrl": "img/products/compactI1.jpg", 
-        "id": "compactI"  
+        "id": "compactI",
+        "price": "449" 
     }, 
     {
         "name": "Circa50:CompactII", 
         "subtitle": "Litter Hideaway & Pet House",
         "imageUrl": "img/products/compactII1.jpg", 
-        "id": "compactII"  
+        "id": "compactII",
+        "price": "449" 
      }
      , 
     {
         "name": "Circa50:Modular Set", 
         "subtitle": "Litter Hideaway & Pet House",
         "imageUrl": "img/products/set1.jpg", 
-        "id": "set"  
+        "id": "set",
+        "price": "999" 
      }, 
     {
         "name": "Circa50:Dwell", 
         "subtitle": "Dog Crate & Pet House",
         "imageUrl": "img/products/petcrate1.jpg", 
-        "id": "petcrate"  
+        "id": "petcrate",
+        "price": "699"
      }, 
     {
         "name": "Circa50:Diner", 
         "subtitle": "Elevated Pet Feeder",
         "imageUrl": "img/products/feeder1.jpg", 
-        "id": "feeder"  
+        "id": "feeder",
+        "price": "79" 
      }
    
 ]

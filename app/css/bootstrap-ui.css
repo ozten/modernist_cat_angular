@@ -98,16 +98,17 @@
   font-family:Helvetica, Arial, sans-serif;
   position: absolute;
   top: 45%;
-  left: -18px;
+  left: -22px;
   width: 40px;
-  height: 40px;
-  font-size: 60px;
+  height: 50px;
+  padding:0 8px;
+  font-size: 50px;
   font-weight: 100;
-  line-height: 30px;
+  line-height: 50px;
   color: #c8be38;
-  text-align: center;
-  background: #483e32;
-  border: 3px solid #483e32;
+  text-align: left;
+  cursor:pointer;
+  background: url("images/layout/woodgrain_bg.png") repeat scroll center top rgb(103, 93, 82);
   -webkit-border-radius: 23px;
      -moz-border-radius: 23px;
           border-radius: 23px;
@@ -115,15 +116,14 @@
 }
 
 .carousel-control.right {
-  right: -18px;
+  right: -22px;
   left: auto;
+  text-align: right;
 }
 
 .carousel-control:hover {
-  color: #31312f;
+  color: #ffffff;
   text-decoration: none;
-  opacity: 0.9;
-  filter: alpha(opacity=90);
 }
 
 
@@ -154,6 +154,20 @@
 .carousel-caption p {
   margin-bottom: 0;
   font-size:.9em;
+}
+
+.btn.larger {
+  background:url('images/layout/mc-sprite.png') 0 0 no-repeat;
+  float:right;
+  width:20px;
+  height:20px;
+  text-indent: -9999999px;
+  border:none;
+  cursor: pointer;
+
+}
+.btn.larger:hover {
+  background-position:0 -20px;
 }
 
 .modal-backdrop {
@@ -228,16 +242,33 @@
   border-bottom: 1px solid #eee;
   float:left;
   width:100%;
+  position: relative;
 }
-.modal-header .btn {
+.modal-header .btn.close {
+  position:absolute;
+  top:10px;
+  right:10px;
+  background:url('images/layout/mc-sprite.png') 0 -100px no-repeat;
   float:right;
+  width:22px;
+  height:22px;
+  text-indent: -9999999px;
+  border:none;
+  cursor: pointer;
 }
-
+.modal-header .btn.close:hover {
+  background-position: 0 -60px;
+}
 
 .modal-header h5 {
   margin: 0;
-  line-height: 30px;
+  line-height: 17px;
   float:left;
+}
+.modal-header div {
+float: left;
+padding-left: 12px;
+line-height: 17px;
 }
 
 .modal-body {
@@ -248,6 +279,11 @@
   clear:both;
 }
 
+.modal-body pinit {
+  position: absolute;
+  right:15px;
+  top:15px;
+}
 .modal-form {
   margin-bottom: 0;
 }

@@ -1,3 +1,63 @@
+/* Base Type Styles Using Modular Scale ---------------------- */
+body {font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.3}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td { margin: 0; padding: 0; direction: ltr; }
+
+p { font-family: inherit; font-weight: normal; font-size: 13px; line-height: 1.2; margin-bottom: 17px; }
+p.lead { font-size: 17.5px; line-height: 1.3; margin-bottom: 17px; }
+
+aside p { font-size: 13px; line-height: 1.35; font-style: italic; }
+
+h1, h2, h3, h4, h5, h6 { font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-weight: bold; font-style: normal; color: #222222; text-rendering: optimizeLegibility; line-height: 1.1; margin-bottom: 14px; margin-top: 14px; }
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small { font-size: 60%; color: #6f6f6f; line-height: 0; }
+
+h1 { font-size: 44px; }
+
+h2 { font-size: 37px; }
+
+h3 { font-size: 27px; }
+
+h4 { font-size: 23px; }
+
+h5 { font-size: 17px; }
+
+h6 { font-size: 14px; }
+
+hr { border: solid #ddd; border-width: 1px 0 0; clear: both; margin: 22px 0 21px; height: 0; }
+
+.subheader { line-height: 1.3; color: #6f6f6f; font-weight: 300; margin-bottom: 17px; }
+
+em, i { font-style: italic; line-height: inherit; }
+
+strong, b { font-weight: bold; line-height: inherit; }
+
+small { font-size: 60%; line-height: inherit; }
+
+code { font-weight: bold; background: #ffff99; }
+
+#product-details input {padding-right:8px;}
+
+/* Lists ---------------------- */
+ul, ol, dl { font-size: 14px; line-height: 1.2; margin-bottom: 17px; list-style-position: outside; }
+
+ul li ul, ul li ol { margin-left: 20px; margin-bottom: 0; }
+ul.square, ul.circle, ul.disc { margin-left: 17px; }
+ul.square { list-style-type: square; }
+ul.square li ul { list-style: inherit; }
+ul.circle { list-style-type: circle; }
+ul.circle li ul { list-style: inherit; }
+ul.disc { list-style-type: disc; }
+ul.disc li ul { list-style: inherit; }
+ul.no-bullet { list-style: none; }
+ul.large li { line-height: 21px; }
+
+ol { margin-left: 20px; }
+ol li ul, ol li ol { margin-left: 20px; margin-bottom: 0; }
+
+/* Links ------------------------ */
+a {color: rgb(14, 125, 158)}
+a:hover, a:focus {color: rgb(3, 84, 108)}
+
 /* app css stylesheet */
 
 .menu {
@@ -59,7 +119,7 @@
 body  {color:rgb(49, 49, 47);}
 h1, h2, h3, h4, h5, h6 {color:rgb(103, 104, 88);}
 
-nav ul li { float: left; display: block; margin-right: 15px;}
+
 #content { clear: both; }
 
 .alt {
@@ -72,13 +132,24 @@ nav ul li { float: left; display: block; margin-right: 15px;}
 .floatleft {float:left;}
 
 /*header*/
+.header .columns {
+  padding:0px;
+}
+.header {
+  margin-bottom:20px; 
+}
 .logo {
   background:url('images/layout/logo.png') no-repeat 0 0;
   width:400px;
-  height:100px;
+  height:80px;
   background-size:400px auto; 
   float:left
 }
+nav {
+  margin-top:70px;
+}
+nav ul li { float: left; display: block; margin-left: 10px;}
+
 .social{
   background:url('images/layout/socialicons.png') no-repeat 0 0;
   height:22px;
@@ -91,7 +162,7 @@ nav ul li { float: left; display: block; margin-right: 15px;}
 
 /* product list */
 .horizontal li {float:left;}
-.productList img {width:125px;}
+.productList img {width:100%;}
 
 
 /* footer */
@@ -102,7 +173,72 @@ width:100%;
 border-top:1px solid #483e32;
 background-color:#fff;
 font-size:.8em;
-margin-top:20px;
+margin-top:40px;
+}
+#footer .minilogo {
+  background:#ffffff url('images/layout/logomini.png') no-repeat 5px 0;
+  width:60px;
+  height:50px;
+  margin:-60px auto 0 auto;
+}
+
+/* home page */
+#home-products {
+  background-color:rgba(224, 221, 218, .75);
+  float:right;
+}
+
+#home-products li {
+  width:33.3333%;
+  position:relative;
+
+}
+#shopBadge {
+  position:absolute;
+  right:0px;
+  top:0px;
+}
+#home-links{
+  float:right;
+}
+
+#home-links .source {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+#home-links li {
+  margin-bottom:12px;
+}
+
+#home-products .thumbnail {
+  margin-right:10px;
+  margin-bottom:10px;
+  background-color:#ffffff;
+  
+  padding-top:10px;
+  font-size:.85em;
+
+}
+#home-products .thumbnail div {
+  padding:10px;
+  background: rgb(72, 62, 50);
+  background: rgba(72, 62, 50, 0.75);
+  color:#fff;
+}
+#home-products .thumbnail div a {
+  color:#fff;
+  text-decoration: none;
+  font-weight:bold;
+  font-size:1.1em;
+
+}
+#home-products .thumbnail:hover div {
+  background: rgb(72, 62, 50);
+  background: rgba(72, 62, 50, 1.0);
+}
+
+#home-products .thumbnail span.price {
+  float:right;
 }
 
 /*product pages*/
@@ -121,12 +257,55 @@ margin-top:20px;
   padding:2px 0px;
   display:inline-block;
 }
+.main-image {
+  position:relative;
+
+}
+.main-image .btn {
+  position :absolute;
+  bottom:10px;
+  right:10px;
+}
+.main-image pinit {
+  position :absolute;
+  bottom:10px;
+  right:40px;
+  display:none;
+}
+
+.main-image:hover .btn.larger{
+  background-position:0 -20px;
+}
+.main-image:hover pinit {
+  display:block;
+}
+
+li.selection-radio {
+  display:none;
+}
+
+li.selection-tile {
+  font-size:.86em;
+  clear:both;
+  color:#676858;
+}
+
+#product-addons ul {
+  clear:left;
+}
+
+#product-addons ul ul {
+  float:left;
+}
 
 .button {
-  padding:2px 4px;
+  padding:6px;
   background-color:#C8BE38;
-  font-weight:normal;
+  font-weight:bold;
   border-color:#676858;
+  border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 
 .thumbs li {
@@ -191,8 +370,15 @@ ul.form {
 }
 
 /*product detail layout */
+#product-details {
+  border-bottom:1px solid rgb(72,62,50);
+}
 .selection.radio, .selection.radioprice {
   display:none;
+}
+#detail-products li{
+  width: 16.66667%;
+  float:left;
 }
 
 

@@ -1,7 +1,7 @@
 {
 	"scratch" : {"type": "tile", "class":"scratch", "choices" :["Bark", "Teal", "Tangerine", "Bone", "Kiwi"]},
-	"door" : {"type": "radio", "choices" :["rectangle", "circle"]},
-	"entSide" : {"type": "radio", "choices" :["right", "left"]},
+	"door" : {"type": "radio", "choices" :["Rectangle", "Circle"]},
+	"entSide" : {"type": "radio", "choices" :["Right", "Left"]},
 	"laminate" : {"type": "tile", "class":"laminate", "choices": ["Walnut", "White", "Poppy & Orange", "Robin & Space", "Mint & Pear"]},
 	"laminate1" : {"type": "tile", "class":"laminateB", "choices": ["Walnut", "White", "Orange", "Space", "Pear"]},
 	"laminate2" : {"type": "tile", "class":"laminateB", "choices": ["Walnut", "White", "Orange", "Space", "Pear", "Charcoal"]},

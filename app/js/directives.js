@@ -12,7 +12,10 @@ app.directive("thumbnail", function() {
 		},
 		restrict: "E",
 		transclude: true,
-		template: '<li class="three columns"><a href="#/products/{{prodid}}" title="{{subtitle}}" class="title"> {{name}}</a><a href="#/products/{{prodid}}" title="{{subtitle}}" class="title" ng-transclude></a></li>',
+		template: '<li class="product">'+
+					'<div class="thumbnail"><a href="#/products/{{prodid}}" title="{{subtitle}}" class="title" ng-transclude></a>' + 
+					'<div><span><a href="#/products/{{prodid}}" title="{{subtitle}}" class="title"> {{name}}</a><br/>{{subtitle}}</span>' + 
+					'</div></div></li>',
 		replace: true
 	}
 });
@@ -63,10 +66,14 @@ app.directive("pinit", function(){
 		scope: {
 			img: "@",
 			prodid: "@",
-			caption: "@",
-			url: "@"		
+			caption: "@"		
 		},
-		templateUrl: 'partials/pinterest.html'
+		link: function (scope, element, attrs) {
+           scope.url = 'http://modernistcat.com';
+        },
+		template: '<newwindow class="link" href="//pinterest.com/pin/create/button/?url={{url}}/{{prodid}}&' + 
+		'media={{url}}/{{img}}&description={{caption}} from Modernistcat.com" data-pin-do="buttonPin" data-pin-config="none" >' +
+		'<img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></newwindow>'
 	}
 })
 
@@ -75,7 +82,6 @@ app.directive("newwindow", function(){
 		restrict: 'E',
 		link: function(scope, element, attrs){
 			element.bind("click", function(){
-				console.log(attrs.href)
 				window.open(attrs.href, "Create Pin", 'width=600, height=400');
 				return false;
 				})

@@ -1,12 +1,31 @@
-      <div class="row">
+      <div class="row" id="product-details">
         <div class="six columns images">
-          <img ng-src="{{mainImageUrl}}">
+          <div class="main-image" ng-controller="ModalDemoCtrl"><img ng-src="{{mainImageUrl}}">
+            <pinit img='{{mainImageUrl}}' caption='{{product.name}} {{product.subtitle}}' prodid='{{product.id}}'><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png"></img></pinit>
+            <button class="btn larger" ng-click="open()" title="View Larger">Open me!</button>
+          <div modal="shouldBeOpen" close="close()" options="opts">
+              <div class="modal-inner">
+                <div class="modal-header">
+                    <h5>{{product.name}}</h5>
+                    <button class="btn close" ng-click="close()">Close</button>
+                </div>
+                <div class="modal-body">
+                    <pinit img='{{mainImageUrl}}' caption='{{product.name}} {{product.subtitle}}' prodid='{{product.id}}'><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png"></img></pinit><img ng-src="{{mainImageUrl}}" style="margin:auto;">
+                </div>
+                <div class="modal-footer">
+                    
+                </div>
+            </div>
+          </div>
+
+
+          </div>
           <ul class="thumbs no-bullet">
           	<li ng-repeat="img in product.images">
           		<img ng-src="{{img}}" ng-click="setImage(img)">
           	</li>
           </ul>
-          <pinit img={{mainImageUrl}} caption={{product.pinitcaption}} prodid={{product.id}}><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png"></img></pinit>
+          
         </div>
         <div class="six columns product">
           <h2><span>{{ product.name }}</span></h2>
@@ -14,15 +33,15 @@
           <ul class="no-bullet">
             <li ng-bind-html-unsafe="product.description"></li>
           </ul>
-          <div class="six columns">
+          <div class="six columns" id="product-options">
             <h5>Configuration Options</h5>
             <ul ng-repeat="(key, optionType) in product.options" class="no-bullet" ng-controller="ProductSelectionCtrl"><li>{{optionType.title}}</li><li ng-repeat="choice in options[optionType.options].choices" class="{{options[optionType.options].class}}{{$index}} {{options[optionType.options].type}}" ng-class="{active: isActive(choice)}" ng-model="choiceValues[key]" ng-click="select(choice)" enter="switchImage('{{product.id}}','{{choice}}', '{{key}}')" chooser layout="{{options[optionType.options].type}}-{{$index}}" update="changeBasePrice('{{optionType.options}}','{{$index}}')">{{choice}}</li><li class="selection-{{options[optionType.options].type}}">{{selected}}</li></ul>
           </div>
-          <div class="six columns">
+          <div class="six columns" id="product-addons">
             <h5>Addons</h5>
 			       <ul ng-repeat="(key, addonType) in product.addons" class="no-bullet">
 				        <li><input type="checkbox" ng-model="addons" ng-change="updatePrice('{{addons}}','{{addonType.price}}', '{{key}}')">{{addonType.title}}: (${{addonType.price}})
-					       <ul class="no-bullet" ng-controller="ProductSelectionCtrl" ng-show="addons"><li ng-repeat="choice in options[addonType.options].choices" class="{{addonType.options}}{{$index}} {{options[addonType.options].type}}" ng-class="{active: isActive(choice)}" ng-click="select(choice)" ng-model="addonValues[key]" chooser layout="{{options[optionType].type}}-{{$index}}" >{{choice}}</li><li class="selection {{options[optionType].type}}">{{selected}}</li><li class="notes">{{addonType.description}}</li></ul>
+					       <ul class="no-bullet" ng-controller="ProductSelectionCtrl" ng-show="addons"><li ng-repeat="choice in options[addonType.options].choices" class="{{addonType.options}}{{$index}} {{options[addonType.options].type}}" ng-class="{active: isActive(choice)}" ng-click="select(choice)" ng-model="addonValues[key]" chooser layout="{{options[optionType].type}}-{{$index}}" >{{choice}}</li><li class="selection-{{options[addonType.options].type}}">{{selected}}</li><li class="notes">{{addonType.description}}</li></ul>
 				        </li>
 			       </ul>
           </div>
@@ -30,8 +49,8 @@
             <div class="twelve columns prices">
               <span id="price">${{ selectionPrice }} {{ addonString }}</span>
               <div class="right button" ng-click="validateSelections()">Checkout</a></div>
-              <!-- stringify and urlencode -->
-              <div>All Selections: {{ totalPrice }} choiceValues:{{choiceValues}} addonValues:{{addonValues}} addonsSelected:{{addonsSelected}}</div>
+              <!-- stringify and urlencode 
+              <div>All Selections: {{ totalPrice }} choiceValues:{{choiceValues}} addonValues:{{addonValues}} addonsSelected:{{addonsSelected}}</div>-->
             </div>
             <div class="clear">
 		          <tabs>
