@@ -11,8 +11,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
-<link rel="stylesheet" href="/app/css/foundation.css">
-<link rel="stylesheet" href="/app/css/app.css">
+<link rel="stylesheet" href="../css/foundation.css">
+<link rel="stylesheet" href="../css/app.css">
 <link href='http://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
 <title></title>
 

@@ -1,4 +1,6 @@
 <?
+error_reporting(E_ALL ^E_DEPRECATED);
+
 require_once('./stripe-php-1.7.15/lib/Stripe.php');
 require_once('./config.php');
 
@@ -8,14 +10,14 @@ require_once('./email_sale.php');
 // What are they buying?
 $product_id = $_POST['product_id'];
 // Load Product databse
-$rawJson = file_get_contents('../app/products/' . $product_id . '.json');
+$rawJson = file_get_contents('../products/' . $product_id . '.json');
 if ($rawJson == FALSE) {
   die('No such product');
 }
 
 // Our Databases are from our .json files
 $productDb = json_decode($rawJson);
-$optionsDb = json_decode(file_get_contents('../app/products/options.json'));
+$optionsDb = json_decode(file_get_contents('../products/options.json'));
 $addonsSelected = array();
 $addonDetails = array();
 $optionDetails = array();

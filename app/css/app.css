@@ -300,12 +300,15 @@ li.selection-tile {
 
 .button {
   padding:6px;
-  background-color:#C8BE38;
+  background-color:rgb(34, 132, 161);
   font-weight:bold;
   border-color:#676858;
   border-radius: 5px 5px 5px 5px;
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 0 rgba(1, 1, 1, 0.3);
     cursor: pointer;
+}
+.button:hover {
+  background-color:#c8be38;
 }
 
 .thumbs li {

@@ -1,6 +1,8 @@
 <?php include 'header.php'; ?>
 
 <?
+error_reporting(E_ALL ^E_DEPRECATED);
+
 require_once('./config.php');
 require_once('./cart.php');
 
@@ -9,14 +11,14 @@ require_once('./cart.php');
 $product_id = $_GET['product_id'];
 
 // Load Product databse
-$rawJson = file_get_contents('../app/products/' . $product_id . '.json');
+$rawJson = file_get_contents('../products/' . $product_id . '.json');
 if ($rawJson == FALSE) {
   die('No such product');
 }
 
 // Our Databases are from our .json files
 $productDb = json_decode($rawJson);
-$optionsDb = json_decode(file_get_contents('../app/products/options.json'));
+$optionsDb = json_decode(file_get_contents('../products/options.json'));
 
 // Things that can change the price
 // On the feeder - size affects price... Default to Double if no 'asize' present
@@ -88,10 +90,8 @@ $stripe_description = $productDb->name . ' ' . $productDb->subtitle . ' total: $
 <form action="checkout.php" method="POST" id="payment-form">
   <!-- Crystal can get Customer's Name out of Stripe payment, or we can ask for it twice. -->
   <input name="product_id" value="<?= $product_id ?>" type="hidden" />
-  <input name="description" value="<?= $stripe_description ?>" />
-  <? if ($product_id == 'feeder') { ?>
-    <input name="feeder_size" value="$feederSize" type="hidden" />
-  <? } ?>
+  <input name="description" value="<?= $stripe_description ?>" type="hidden" />
+  <input name="feeder_size" value="$feederSize" type="hidden" />
 
   <? foreach($options as $option => $value) { ?>
     <input name="option_<?= $option ?>" value="<?= $value ?>" type="hidden" />

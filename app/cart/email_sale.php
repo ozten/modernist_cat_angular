@@ -4,7 +4,7 @@ require_once('./config.php');
 
 function emailSale($to, $name, $body) {
     $from = "Sales <austin@carkeek.co>";
-    $subject = "New Sale! $name $email";
+    $subject = "New Sale! $name";
 
     $host = "smtp.socketlabs.com";
     $port = "25";
