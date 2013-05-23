@@ -3,6 +3,7 @@ require_once('./stripe-php-1.7.15/lib/Stripe.php');
 require_once('./config.php');
 
 require_once('./cart.php');
+require_once('./email_sale.php');
 
 // What are they buying?
 $product_id = $_POST['product_id'];
@@ -57,28 +58,26 @@ $stripe_description = $name . "<" . $email . "> --- \n\n" . $address_1 . " \n" .
 
 // Create the charge on Stripe's servers - this will charge the user's card
 try {
-$charge = Stripe_Charge::create(array(
-  "amount" => $total_price * 100,
-  "currency" => "usd",
-  "card" => $token,
-  "description" => $stripe_description
-));
 
-// Email Crystal new sale
+  $charge = Stripe_Charge::create(array(
+    "amount" => $total_price * 100,
+    "currency" => "usd",
+    "card" => $token,
+    "description" => $stripe_description
+  ));
 
-$subject = "New Sale! $name $email";
+  // Email Crystal new sale
+  $body = $stripe_description;
+  $body .= "\n\nPrice: $" . $total_price . " on Stripe at https://manage.stripe.com/test/payments/" . $_POST['stripeToken'];
 
-$body = $stripe_description;
-$body .= "\n\nPrice: $" . $total_price . " on Stripe at https://manage.stripe.com/test/payments/" . $_POST['stripeToken'];
-
-mail($CRYSTAL_EMAIL, $subject, $body);
-
+  if (emailSale($CRYSTAL_EMAIL, "$name <$email>", $body) == FALSE) {
+    // Yikes, didn't send email... TODO
+  }
+  header('Location: http://ozten.com/random/modernistcat/');
+  die();
 
 } catch(Stripe_CardError $e) {
   // The card has been declined
+  echo "Sorry, we're having trouble processing this card.";
 }
-
-header('Location: http://ozten.com/random/modernistcat/');
-die();
-
 ?>
