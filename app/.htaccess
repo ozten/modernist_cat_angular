@@ -1,4 +1,0 @@
-AuthType Basic  
-AuthName "Under Development"  
-AuthUserFile /home/modernistcat/dev/.htpasswrd  
-require valid-user

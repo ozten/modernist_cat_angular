@@ -43,7 +43,7 @@ app.controller("ProductDetailCtrl", function($scope, $routeParams, $http, JsonSe
 				imageUrl = "img/products/switches/compactII-" + sel + ".jpg";
 			}
 		}
-		if (prodid == "feeder"){
+		if (prodid == "feeder" && key == "asize"){
 			imageUrl = "img/products/feedersizes.jpg";
 		}
 		$scope.mainImageUrl = imageUrl;
@@ -86,7 +86,7 @@ app.controller("ProductDetailCtrl", function($scope, $routeParams, $http, JsonSe
 		var availOptions = $scope.product.options;
 		var validOptions = false;
 		var validAddons = false;
-		
+	
 		for (var i in availOptions){
 			var title = availOptions[i].title
 			var sel = ($scope.choiceValues[i]);
@@ -100,8 +100,10 @@ app.controller("ProductDetailCtrl", function($scope, $routeParams, $http, JsonSe
 		}
 		//check addons if true, must make a selection
 		var addons = $scope.product.addons;
+		if ($.isEmptyObject(addons)){
+			validAddons = true;
+		}
 		for (var i in addons){
-			console.log(i)
 			var sel = $scope.addonValues[i];
 			if ($scope.addonsSelected[i] == true && sel == undefined && addons[i].options != null){
 					alert("Please select " + addons[i].title);
@@ -111,7 +113,6 @@ app.controller("ProductDetailCtrl", function($scope, $routeParams, $http, JsonSe
 				validAddons = true;
 			}
 		}
-		console.log(validOptions, validAddons)
 		if (validOptions == true && validAddons == true){
 			var url = 'http://localhost:8888/cart/?'
 			var options=JSON.stringify($scope.choiceValues);
@@ -146,7 +147,6 @@ $http.get('products/slides.json').success(function(data){
 
   $scope.$watch('slides', function(values) {
 	var slides = $scope.slides;
-	console.log(slides.length);
     var i, a = [], b;
 
     for (i = 0; i < slides.length; i += 2) {
@@ -194,14 +194,31 @@ var ModalDemoCtrl = function ($scope) {
 
 function LinkListCtrl($scope, $routeParams, $http, JsonService) {
 
-$http.get('products/weblinks.json').success(function(data){
-  $scope.links = data;
-});
+	$http.get('products/weblinks.json').success(function(data){
+	  $scope.links = data;
+	});
 
-$scope.onHomePage = function(link){
-    return (link.onHomePage == true);
+	$scope.onHomePage = function(link){
+	    return (link.onHomePage == true);
+	};
 };
+
+function EditListCtrl($scope, $routeParams, $http, JsonService) {
+	
+	$http.get('products/editor.json').success(function(data){
+	  	$scope.editObjects = data;
+	  	for (var i=0; i<$scope.editObjects.length; i++){			
+			var url = $scope.editObjects[i].file;
+			$scope.editObjects[i].items = [];
+			//console.log(i, $scope.editObjects[i].file, url);
+			$http.get(url).success(function(d2){
+				$scope.editObjects[i].items = d2;
+			});
+		}
+	});
 };
+
+
 
 
 

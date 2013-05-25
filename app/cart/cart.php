@@ -2,7 +2,7 @@
 /**
  * Calculates price based on inputs. Depends on Option and Addon validation happening elsewhere
  */
-function calcualte_total_price($product_id, $productDb, $optionsDb, $addonsSelected, $feederSize) {
+function calculate_total_price($product_id, $productDb, $optionsDb, $addonsSelected, $feederSize) {
     $total_price = 0;
     if ($productDb->price) {
         $total_price += $productDb->price;
@@ -13,7 +13,7 @@ function calcualte_total_price($product_id, $productDb, $optionsDb, $addonsSelec
     // Feeders size affect price
     if ($product_id == 'feeder') {
         $priceCode = array_search($feederSize, $optionsDb->size->choices);
-        $total_price += $optionsDb->size->price[$priceCode];
+        $total_price = $optionsDb->size->price[$priceCode];
     }
 
     foreach($addonsSelected as $addon => $value) {

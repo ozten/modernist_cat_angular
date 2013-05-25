@@ -14,7 +14,6 @@ $rawJson = file_get_contents('../products/' . $product_id . '.json');
 if ($rawJson == FALSE) {
   die('No such product');
 }
-
 // Our Databases are from our .json files
 $productDb = json_decode($rawJson);
 $optionsDb = json_decode(file_get_contents('../products/options.json'));
@@ -34,7 +33,7 @@ if ($product_id == 'feeder') {
     array_push($optionDetails, 'feeder_size', $_POST['feeder_size']);
 }
 
-$total_price = calcualte_total_price($product_id, $productDb, $optionsDb, $addonsSelected, $_POST['feeder_size']);
+$total_price = calculate_total_price($product_id, $productDb, $optionsDb, $addonsSelected, $_POST['feeder_size']);
 
 // Set your secret key: remember to change this to your live secret key in production
 // See your keys here https://manage.stripe.com/account
@@ -75,7 +74,7 @@ try {
   if (emailSale($CRYSTAL_EMAIL, "$name <$email>", $body) == FALSE) {
     // Yikes, didn't send email... TODO
   }
-  header('Location: http://ozten.com/random/modernistcat/');
+  header('Location: http://dev.modernistcat.com/#/thanks');
   die();
 
 } catch(Stripe_CardError $e) {

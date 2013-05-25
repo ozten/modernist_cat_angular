@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="../css/foundation.css">
 <link rel="stylesheet" href="../css/app.css">
 <link href='http://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
-<title></title>
+<title>Modernist Cat: Made for Pets, Designed for You</title>
 
 
 

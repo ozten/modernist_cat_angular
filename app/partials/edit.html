@@ -1,0 +1,14 @@
+<!--
+editObjects > json file for each object (Slides, Links)
+
+
+-->	
+
+<tabs>
+    <pane ng-repeat="object in editObjects" heading="{{object.title}}" active="$index == 0">
+    	<div class="editor">
+    		{{object.items}}
+    
+    </div>
+    </pane>
+ </tabs>

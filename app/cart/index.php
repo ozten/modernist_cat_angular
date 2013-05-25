@@ -25,21 +25,23 @@ $optionsDb = json_decode(file_get_contents('../products/options.json'));
 // addons - addonsSelected that come in as true
 // $product_id.json->addons->$addon_name->price
 
-$choiceValues = json_decode($_GET['choiceValues']);
+$options = json_decode($_GET['options']);
 
 // Default size for feeder... irrelevant for other products
 $feederSize = 'Double';
 
 // Feeders size affect price
 if ($product_id == 'feeder') {
-    if ($choiceValues && $choiceValues->asize) {
-        if (in_array($choiceValues->asize, $optionsDb->size->choices)) {
-	    $feederSize = $choiceValues->asize;
+    if ($options && $options->asize) {
+        if (in_array($options->asize, $optionsDb->size->choices)) {
+	    $feederSize = $options->asize;
         } else {
    	    die('Invalid size, invalid option');
         }
     }
 }
+
+
 
 // Decode this one as an array instead of an Object
 // to make looping over keys easier
@@ -50,14 +52,25 @@ $addonsSelected = json_decode($_GET['addonsSelected'], TRUE);
 //  addonValues:{"elounge":"Chipper Stone"} 
 $addonValues = json_decode($_GET['addonValues'], TRUE);
 
+$addonSelections = array();
 foreach($addonsSelected as $addon => $value) {
-    if ($value == 'true') {
-        $addonValue = $addonValues[$addon];
+    if ($value == TRUE) {
         if ($productDb->addons->{$addon}) {
-	    $addonKey = $productDb->addons->{$addon}->options;
-	    if (in_array($addonValue, $optionsDb->{$addonKey}->choices) == FALSE) {
-	        die('Invalid Addon choice, $addon cannot be $value for $product_id product');
-            }
+	       $addonKey = $productDb->addons->{$addon}->options;
+         
+           if (is_null($addonKey)) {
+              // Do nothing, this is for addons like litterpan
+              $addonKey = $addon;
+              $addonValue = 'selected';
+           } else {
+              // A valid selection!
+              $addonValue = $addonValues[$addon]; 
+              if (in_array($addonValue, $optionsDb->{$addonKey}->choices) == FALSE) {
+                 die('Invalid Addon choice, <?= $addon => cannot be $value for <?= $product_id product =>');
+              }
+           }
+           array_push($addonSelections, array($addonKey, $addonValue));   
+
         } else {
             die('Invalid addon $addon is not valid for $product_id product');
         }
@@ -65,12 +78,12 @@ foreach($addonsSelected as $addon => $value) {
 }
 
 // Validate Options and Addons which don't affect the price
-$options = json_decode($_GET['options'], TRUE);
+//$options = json_decode($_GET['options'], TRUE);
 
 // All options must be valid for this product
 foreach($options as $option => $value) {
     // Is this product allowed to have this option?
-
+    
     if (in_array($option, array_keys(get_object_vars($productDb->options)))) {
         // Is the value of this option a legal value?
         $optionKey = $productDb->options->{$option}->options;
@@ -82,29 +95,40 @@ foreach($options as $option => $value) {
     }
 }
 
-$total_price = calcualte_total_price($product_id, $productDb, $optionsDb, $addonsSelected, $feederSize);
+$total_price = calculate_total_price($product_id, $productDb, $optionsDb, $addonsSelected, $feederSize);
 $stripe_description = $productDb->name . ' ' . $productDb->subtitle . ' total: $' . $total_price;
 
 ?>
-
 <form action="checkout.php" method="POST" id="payment-form">
-  <!-- Crystal can get Customer's Name out of Stripe payment, or we can ask for it twice. -->
+<div class="six columns" id="checkout">
+
+ <h5> <?= $productDb->name ?> </h5>
+ <div class="subtitle"><?= $productDb->subtitle ?> | $<?= $total_price ?></div>
+<ul class="no-bullet">
   <input name="product_id" value="<?= $product_id ?>" type="hidden" />
   <input name="description" value="<?= $stripe_description ?>" type="hidden" />
   <input name="feeder_size" value="$feederSize" type="hidden" />
 
-  <? foreach($options as $option => $value) { ?>
-    <input name="option_<?= $option ?>" value="<?= $value ?>" type="hidden" />
+  <? foreach($options as $option => $value) { 
+    $optionTitle = $productDb->options->{$option}->title; ?>
+    <input name="option_<?= $optionTitle ?>" value="<?= $value ?>" type="hidden" />
+    <li><?= $optionTitle ?>: <?= $value ?></li>
   <? } ?>
 
-  <? foreach($addonsSelected as $addon => $value) { 
-        $addonValue = $addonValues[$addon]; ?>
-    <input name="addon_<?= $addon ?>" value="<?= $addonValue ?>" type="hidden" />
+  <? foreach($addonSelections as $selection) { 
+    // A $selection is [key, value] Example: ['carpet', 'Brown']
+        $addonTitle = $selection[0];
+        $addonValue = $selection[1];
+        
+        ?>
+        <input name="addon_<?= $addonTitle ?>" value="<?= $addonValue ?>" type="hidden" />
+        <li><?= $addonTitle ?>: <?= $addonValue ?></li>
   <? } ?>
 
-<div class="six columns">
+</ul>
+<img src="../<?= $productDb->images[0]?>" />
 </div> 
-<div class="six columns"> 
+<div class="six columns" id="checkout-form"> 
   <fieldset>
     <legend>Contact Info</legend>
   <ul class="form">
@@ -155,7 +179,7 @@ $stripe_description = $productDb->name . ' ' . $productDb->subtitle . ' total: $
     data-amount="<?= $total_price * 100 ?>"
     data-name="Modernistcat"
     data-description="<?= $stripe_description ?>"
-    data-image="/app/<?= $productDb->images[0] ?>">
+    data-image="/<?= $productDb->images[0] ?>">
   </script>
 </form>
 </div>

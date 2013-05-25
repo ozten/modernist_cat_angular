@@ -8,13 +8,14 @@ app.directive("thumbnail", function() {
 		scope: {
 			name:"@",
 			subtitle:"@",
-			prodid:"@"
+			prodid:"@",
+			price:"@"
 		},
 		restrict: "E",
 		transclude: true,
 		template: '<li class="product">'+
 					'<div class="thumbnail"><a href="#/products/{{prodid}}" title="{{subtitle}}" class="title" ng-transclude></a>' + 
-					'<div><span><a href="#/products/{{prodid}}" title="{{subtitle}}" class="title"> {{name}}</a><br/>{{subtitle}}</span>' + 
+					'<div><span><a href="#/products/{{prodid}}" title="{{subtitle}}" class="title"> {{name}}</a><br/>{{subtitle}}<br/>${{price}}</span>' + 
 					'</div></div></li>',
 		replace: true
 	}
@@ -42,7 +43,8 @@ app.directive("chooser", function($compile) {
 						var id = value.split('-');
 						var checked = "";
 						if(id[1] == scope.options[scope.optionType.options].selected) { 
-							checked = "checked='true'"
+							checked = "checked='true'";
+							scope.choiceValues[scope.key] = scope.options[scope.optionType.options].choices[id[1]];
 						}
 						var input = '<input type="radio" name="' + scope.optionType.title + '" value="' + id[1] + '"' + checked + '>';
 						var html = $compile(input)(scope);
