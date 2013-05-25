@@ -1,27 +1,27 @@
 [
     {    
-        "name": "Circa50:Console", 
+        "name": "Circa50: Console", 
         "subtitle": "Cat Scratcher",
         "imageUrl": "img/products/console1.jpg", 
         "id": "console",
         "price": "399"  
     }, 
     {
-        "name": "Circa50:Standard", 
+        "name": "Circa50: Standard", 
         "subtitle": "Litter Hideaway & Pet House",
         "imageUrl": "img/products/standard1.jpg", 
         "id": "standard",
         "price": "599" 
     }, 
     {
-        "name": "Circa50:CompactI", 
+        "name": "Circa50: Compact I", 
         "subtitle": "Litter Hideaway & Pet House",
         "imageUrl": "img/products/compactI1.jpg", 
         "id": "compactI",
         "price": "449" 
     }, 
     {
-        "name": "Circa50:CompactII", 
+        "name": "Circa50: Compact II", 
         "subtitle": "Litter Hideaway & Pet House",
         "imageUrl": "img/products/compactII1.jpg", 
         "id": "compactII",
@@ -29,25 +29,33 @@
      }
      , 
     {
-        "name": "Circa50:Modular Set", 
+        "name": "Circa50: Modular Set", 
         "subtitle": "Litter Hideaway & Pet House",
         "imageUrl": "img/products/set1.jpg", 
         "id": "set",
         "price": "999" 
      }, 
     {
-        "name": "Circa50:Dwell", 
+        "name": "Circa50: Dwell", 
         "subtitle": "Dog Crate & Pet House",
         "imageUrl": "img/products/petcrate1.jpg", 
         "id": "petcrate",
         "price": "699"
      }, 
     {
-        "name": "Circa50:Diner", 
+        "name": "Circa50: Diner", 
         "subtitle": "Elevated Pet Feeder",
         "imageUrl": "img/products/feeder1.jpg", 
         "id": "feeder",
         "price": "79" 
+     }
+     , 
+    {
+        "name": "Replacement Scratch Pad Surface", 
+        "subtitle": "For the Circa50: Console",
+        "imageUrl": "img/products/feeder1.jpg", 
+        "id": "scratchpad",
+        "price": "29" 
      }
    
 ]
