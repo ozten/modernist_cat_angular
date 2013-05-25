@@ -7,7 +7,7 @@ function emailSale($to, $name, $body) {
     $subject = "New Sale! $name";
 
     $host = "smtp.socketlabs.com";
-    $port = "25";
+    $port = "2525";
     $username = "server7853";
     $password = "i8QBr75YgMq4n6";
 

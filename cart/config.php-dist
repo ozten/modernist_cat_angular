@@ -1,5 +1,0 @@
-<?
-$STRIPE_SECRET_KEY = "Your Stripe Secret Key";
-$STRIPE_PUBLISHABLE_KEY = "Your Stripe Publishable Key here";
-$CRYSTAL_EMAIL = "Someone <someone@gmail.com>";
-?>
