@@ -4,6 +4,14 @@ error_reporting(E_ALL ^E_DEPRECATED);
 require_once('./stripe-php-1.7.15/lib/Stripe.php');
 require_once('./config.php');
 
+
+// Validate product id
+// TODO check no '/' exist...
+$product_id = $_POST['product_id'];
+$options = json_decode($_POST['options']);
+$incomingAddonsSelected = $_POST['addonsSelected'];
+$incomingAddonValues = $_POST['addonValues'];
+
 require_once('./cart.php');
 require_once('./email_sale.php');
 
@@ -33,7 +41,7 @@ if ($product_id == 'feeder') {
     array_push($optionDetails, 'feeder_size', $_POST['feeder_size']);
 }
 
-$total_price = calculate_total_price($product_id, $productDb, $optionsDb, $addonsSelected, $_POST['feeder_size']);
+//$total_price = calculate_total_price($product_id, $productDb, $optionsDb, $addonsSelected, $feederSize);
 
 // Set your secret key: remember to change this to your live secret key in production
 // See your keys here https://manage.stripe.com/account
@@ -52,7 +60,7 @@ $comment = $_POST['comments'];
 
 $stripe_description = $name . "<" . $email . "> --- \n\n" . $address_1 . " \n" .
     $address_2 . " \n" . $city . " " . $state . " " . $zip .
-    "\n\n --- 1 product --- \n" . $_POST['description'] .
+    "\n\n --- 1 product --- \n" . $stripe_description .
     "\n --- Addons: \n" . implode(', ', $addonDetails) .
     "\n --- Options: \n" . implode(', ', $optionDetails) .
     "\n\n --- Comment: \n" . $comment;
