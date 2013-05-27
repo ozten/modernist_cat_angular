@@ -1,0 +1,17 @@
+<div class="aboutus">
+
+<div class="eight columns">
+<h5>{{content.title}}</h5>
+<p ng-repeat="p in content.paragraphs" ng-bind-html-unsafe="p"></p>
+<div class='image' ng-repeat="i in content.images">
+	<img src="{{i.imageUrl}}"/>
+	<span class="image-caption">{{i.caption}}</span>
+</div>
+</div>
+ <div class="sidebar four columns">
+ 	<ul ng-repeat="items in content.sidebar">
+	<li class="subtitle">{{items.subtitle}}</li>
+	<li ng-bind-html-unsafe="items.content"></li>
+	<li class="{{icon.class}}" ng-repeat="icon in items.images"><a href="{{icon.link}}" title={{icon.title}}><img src="{{icon.imageUrl}}"/></a></li>
+ 	</ul>
+ </div>

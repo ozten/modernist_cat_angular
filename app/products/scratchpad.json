@@ -1,0 +1,51 @@
+{
+    "id": "scratchpad",
+    "name": "Replacement Scratch Pad Surface",
+    "subtitle": "For the Console",
+    "description": "NEED DESCRIPTION",
+    "options": {
+        "scratch": {"title":"Scratch Surface", "options": "scratch"}
+    },
+    "addons": {
+            
+    },
+    "price": 29,
+    "details": [
+        {
+            "title": "Features",
+            "content": [
+                "Stackable & Modular",
+                "Hinged doors for easy access",
+                "Right-hand side OR left-hand side pet entrance ",
+                "Holes on either side allow for ventilation and easy moving",
+                "Handcrafted with 3/4\" Walnut Hardwood veneer Euro Ply",
+                "Water resistant finish wipes clean",
+                "Optional removable 1\" foam cushion in your choice of fabric",
+                "Optional removable 2\" foam bed with washable fleece cover "
+            ]
+        },
+        {
+            "title": "Specifications",
+            "content": [
+                "13½\"W x 18½\"D x 24½\"H",
+                "Interior: 17\"L x 12\"W",
+                "Pet entrance edge: 5½\"",
+                "Removable Legs: 4\"H\""
+            ]
+        },
+        {
+            "title": "Shipping",
+            "content": [
+                "Items ship free, fully assembled (Continental US only)",
+                "Please allow 2-3 weeks for delivery",
+                "For international shipping rates, please contact me for a quote"
+            ]
+        }
+    ],
+    "pinitcaption" : "Circa50: Console - Pet Scratcher",
+    "images": [
+        "img/products/console1.jpg",
+        "img/products/console2.jpg",
+        "img/products/console3.jpg"
+    ]
+}

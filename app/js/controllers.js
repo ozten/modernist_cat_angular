@@ -196,11 +196,34 @@ function LinkListCtrl($scope, $routeParams, $http, JsonService) {
 
 	$http.get('products/weblinks.json').success(function(data){
 	  $scope.links = data;
+	  for (var i=0; i<$scope.links.length; i++) {
+	  	$scope.links[i].dateObj = new Date($scope.links[i].date);
+	  }
 	});
 
 	$scope.onHomePage = function(link){
 	    return (link.onHomePage == true);
 	};
+
+	$scope.notonHomePage = function(link){
+	    return (link.onHomePage == false);
+	};
+
+	$scope.orderByDate = function(link){
+    return link.dateObj;
+  } 
+};
+
+function FAQListCtrl($scope, $routeParams, $http) {
+	$http.get('products/faq.json').success(function(data){
+	  $scope.questions = data;
+	});
+};
+
+function AboutListCtrl($scope, $routeParams, $http) {
+	$http.get('products/aboutus.json').success(function(data){
+	  $scope.content = data;
+	});
 };
 
 function EditListCtrl($scope, $routeParams, $http, JsonService) {

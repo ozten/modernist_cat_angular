@@ -57,8 +57,10 @@ ol { margin-left: 20px; }
 ol li ul, ol li ol { margin-left: 20px; margin-bottom: 0; }
 
 /* Links ------------------------ */
-a {color: rgb(14, 125, 158)}
+a {color: rgb(14, 125, 158); cursor:pointer;}
 a:hover, a:focus {color: rgb(3, 84, 108)}
+
+
 
 .mc-button, #checkout-form .stripe-button-el {
   -moz-box-shadow:inset 0px 1px 0px 0px #50646b;
@@ -202,9 +204,7 @@ h1, h2, h3, h4, h5, h6, legend {color:rgb(103, 104, 88);}
 .floatleft {float:left;}
 
 /*header*/
-.header .columns {
-  padding:0px;
-}
+
 .header {
   margin-bottom:20px; 
 }
@@ -272,12 +272,17 @@ margin-top:40px;
   float:right;
 }
 
-#home-links .source {
+.featured-links .source {
   text-transform: uppercase;
   font-size: 12px;
 }
-#home-links li {
+.featured-links li {
   margin-bottom:12px;
+}
+.featured-links .date{
+  font-size: 12px;
+  display:inline-block;
+  color:#676858;
 }
 
 .thumbnail {
@@ -512,5 +517,36 @@ li.fabric5 {background-position: -67px -755px}
 #checkout ul {
   color:rgb(103, 104, 88);
   font-size:.86em;
+}
+
+/* about us */
+.aboutus .image {
+  width:80%;
+}
+.aboutus .image-caption {
+   color:rgb(103, 104, 88);
+   clear:left;
+   font-size:.86em;
+}
+
+.sidebar {
+  padding-top:17px;background-color: rgba(224, 221, 218, 0.75);
+}
+.sidebar ul {
+  list-style: none;
+}
+.sidebar .subtitle {
+  text-transform: uppercase;
+  font-size:12px;
+  line-height: 1.2;
+  clear:left;
+  padding-bottom:3px;
+}
+
+.sidebar .icon {
+  float:left;
+  width:40px;
+  padding-right:6px;
+  padding-bottom:12px;
 }
 

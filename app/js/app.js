@@ -31,6 +31,16 @@ app.config(function ($routeProvider, $locationProvider) {
                 templateUrl: 'partials/alllinks.html',
                 controller: 'LinkListCtrl'
             })
+        .when('/faq',
+            {
+                templateUrl: 'partials/faq.html',
+                controller: 'FAQListCtrl'
+            })
+        .when('/aboutus',
+            {
+                templateUrl: 'partials/aboutus.html',
+                controller: 'AboutListCtrl'
+            })
         .when('/edit',
             {
                 templateUrl: 'partials/edit.html',

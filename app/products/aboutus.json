@@ -1,0 +1,40 @@
+{
+	"title":"About Modernist Cat",
+	"paragraphs" : [
+				"Modernist Cat was founded in Seattle, WA in 2010 around the idea that the ways we incorporate our pet’s needs into our home is an opportunity for added beauty rather than a problem of hiding an eyesore. We’ve taken the litter box cover, dog crate, scratching post, pet beds, even food and water dishes and made them into gorgeous high quality furniture that serves our human needs and desires too. It’s why our slogan is, \"made for pets. designed for you.\" ",
+				"Modernist Cat is committed to using eco-friendly materials in order to build products that minimize our environmental impact. For example, our plywood is FSC certified and made with formaldehyde free glue. It is finished using a UV curing process that eliminates all volatile organic compounds (VOC’s). We ship using recycled packing materials whenever possible. ",
+				"Modernist Cat is the hard work of Seattle designer Crystal Gregory with modest help from her husband, their two Canadian Hairless cats, Jackson & Elliott, and their two Italian Greyhounds, Lusi & Linus. ",
+				"<strong>Check out our House Tour on Apartment Therapy:</strong> <a href='http://www.apartmenttherapy.com/crystal-gavins-house-tour-146054'>Crystal & Gavin's House Tour</a>"
+				],
+	"images" : [{"imageUrl":"img/family.jpg", "caption":"Photo by Maria Christina Bianco"}],
+	"sidebar" : [{	"subtitle":"Get in Touch", 
+					"content":"<a href='mailto:modernistcat@gmail.com'>modernistcat@gmail.com</a><br/>425.954.MEOW"
+					},{
+					"subtitle":"Stay in Touch",
+					"images":[{
+						"imageUrl":"css/images/FB-f-Logo__blue_50.png",
+						"link":"http://www.facebook.com/pages/Seattle-WA/Modernist-Cat/115777068471250",
+						"title":"Like us on Facebook",
+						"class":"icon"
+						},{
+						"imageUrl":"css/images/twitter_newbird_blue.png",
+						"link":"https://twitter.com/ModernistCat",
+						"title":"Follow us on Twitter",
+						"class":"icon"
+						},{
+						"imageUrl":"css/images/pinterest_badge_red.png",
+						"link":"http://pinterest.com/modernistcat/",
+						"title":"Follow us on Pinterest",
+						"class":"icon"
+						}]
+					},{
+					"subtitle":"For the Modern Dog",
+					"images":[{
+						"imageUrl":"css/images/urbanpet.jpg",
+						"link":"http://www.etsy.com/shop/UrbanPet",
+						"title":"Visit the Urban Pet Shop on Etsy",
+						"class":"urbanpet"
+						}]
+					}	
+				]
+}
