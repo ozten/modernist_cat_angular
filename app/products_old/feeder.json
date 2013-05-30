@@ -4,11 +4,12 @@
     "subtitle": "elevated pet feeder",
     "description": "Dine in style!  Our modern pet feeder comes in three sizes and six colors that add simple, lively style to both your pet’s dining area and your overall décor.",
     "options": {
-        "asize" : {"title":"Feeder Size", "options": "size", "switch":"feeder"},
-        "laminate" : {"title": "Laminate", "options": "laminate2", "switch":"feeder"}      
+        "asize" : {"title":"Feeder Size", "options": "size"},
+        "laminate" : {"title": "Laminate", "options": "laminate2"}      
     },
-    "addons": "",
-    "price": "59 - $99",
+    "addons": {}
+    ,
+    "price": 79,
     "details": [
         {
             "title": "Features",

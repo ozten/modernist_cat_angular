@@ -2,10 +2,19 @@
 
 /* Controllers */
 
+/* Main - site wide behaviors */
+function mainCtrl($scope, $location, $route) {
+  $scope.activePath = null;
+  $scope.$on('$routeChangeSuccess', function(){
+    $scope.activePath = $location.path();
+  });
+}
+
 /* products list */
 function ProductListCtrl ($scope, $http) {
 	$http.get('products/products.json').success(function(data){
-		$scope.products = data;
+		$scope.productlist = data;
+		$scope.products = data.products;
 	})
 }
 /* each product detail */
@@ -47,6 +56,13 @@ app.controller("ProductDetailCtrl", function($scope, $routeParams, $http, JsonSe
 			imageUrl = "img/products/feedersizes.jpg";
 		}
 		$scope.mainImageUrl = imageUrl;
+	}
+
+	$scope.showOptionsImage = function(option){
+		if(option == "fabric"){
+			$scope.mainImageUrl = "img/products/fabricoptions.jpg";
+		}
+
 	}
 
 	JsonService.query(function(response){

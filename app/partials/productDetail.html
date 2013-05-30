@@ -27,32 +27,32 @@
         </div>
         <div class="six columns product">
           <h2><span>{{ product.name }}</span></h2>
-          <h4>{{ product.subtitle }}</h4>
+          <h4 class="subtitle">{{ product.subtitle }}</h4>
           <ul class="no-bullet">
             <li ng-bind-html-unsafe="product.description"></li>
           </ul>
           <div class="six columns" id="product-options">
             <h5>Configuration Options</h5>
-            <ul ng-repeat="(key, optionType) in product.options" class="no-bullet" ng-controller="ProductSelectionCtrl"><li>{{optionType.title}}</li><li ng-repeat="choice in options[optionType.options].choices" class="{{options[optionType.options].class}}{{$index}} {{options[optionType.options].type}}" ng-class="{active: isActive(choice)}" ng-model="choiceValues[key]" ng-click="select(choice)" enter="switchImage('{{product.id}}','{{choice}}', '{{key}}')" chooser layout="{{options[optionType.options].type}}-{{$index}}" update="changeBasePrice('{{optionType.options}}','{{$index}}')">{{choice}}</li><li class="selection-{{options[optionType.options].type}}">{{selected}}</li></ul>
+            <ul ng-repeat="(key, optionType) in product.options" class="no-bullet" ng-controller="ProductSelectionCtrl"><li>{{optionType.title}}</li><li ng-repeat="choice in options[optionType.options].choices" class="{{options[optionType.options].class}}{{$index}} {{options[optionType.options].type}}" ng-class="{active: isActive(choice)}" ng-model="choiceValues[key]" ng-click="select(choice)" enter="switchImage('{{optionType.switch}}','{{choice}}', '{{key}}')" chooser layout="{{options[optionType.options].type}}-{{$index}}" update="changeBasePrice('{{optionType.options}}','{{$index}}')">{{choice}}</li><li class="selection-{{options[optionType.options].type}}">{{selected}}</li></ul>
           </div>
           <div class="six columns" id="product-addons">
-            <h5>Addons</h5>
+            <h5 ng-show="product.addons != ''">Addons</h5>
 			       <ul ng-repeat="(key, addonType) in product.addons" class="no-bullet">
-				        <li><input type="checkbox" ng-model="addons" ng-change="updatePrice('{{addons}}','{{addonType.price}}', '{{key}}')">{{addonType.title}}: (${{addonType.price}})
-					       <ul class="no-bullet" ng-controller="ProductSelectionCtrl" ng-show="addons"><li ng-repeat="choice in options[addonType.options].choices" class="{{addonType.options}}{{$index}} {{options[addonType.options].type}}" ng-class="{active: isActive(choice)}" ng-click="select(choice)" ng-model="addonValues[key]" chooser layout="{{options[optionType].type}}-{{$index}}" >{{choice}}</li><li class="selection-{{options[addonType.options].type}}">{{selected}}</li><li class="notes">{{addonType.description}}</li></ul>
+				        <li><input type="checkbox" ng-model="addons" ng-change="updatePrice('{{addons}}','{{addonType.price}}', '{{key}}')"><div class="checklabel">{{addonType.title}} (${{addonType.price}})<br/>{{addonType.notes}} </div>
+					       <ul class="no-bullet" ng-controller="ProductSelectionCtrl" ng-show="addons"><li ng-repeat="choice in options[addonType.options].choices" class="{{addonType.options}}{{$index}} {{options[addonType.options].type}}" ng-class="{active: isActive(choice)}" ng-click="select(choice)" ng-model="addonValues[key]" chooser enter="showOptionsImage('{{options[addonType.options].class}}')" layout="{{options[optionType].type}}-{{$index}}" >{{choice}}</li><li class="selection-{{options[addonType.options].type}}">{{selected}}</li><li class="notes">{{addonType.description}}</li></ul>
 				        </li>
 			       </ul>
           </div>
           <div class="row">
             <div class="twelve columns prices">
               <span id="price">${{ selectionPrice }} {{ addonString }}</span>
-              <div class="right mc-button" ng-click="validateSelections()">Checkout</a></div>
-              <!-- stringify and urlencode 
+              <div class="right mc-button" ng-click="validateSelections()">Buy Now</a></div>
+             <!-- stringify and urlencode 
               <div>All Selections: {{ totalPrice }} choiceValues:{{choiceValues}} addonValues:{{addonValues}} addonsSelected:{{addonsSelected}}</div>-->
             </div>
             <div class="clear">
 		          <tabs>
-                <pane ng-repeat="pane in product.details" heading="{{pane.title}}" active="$index == 0"><ul><li ng-repeat="item in pane.content">{{item}}</li></ul></pane>
+                <pane ng-repeat="pane in product.details" heading="{{pane.title}}" active="$index == 0"><ul><li ng-repeat="item in pane.content" ng-bind-html-unsafe="item"></li></ul></pane>
 		          </tabs>
             </div>
           </div>

@@ -34,13 +34,14 @@ require_once('./cart.php');
 
   <? foreach($addonSelections as $selection) { 
     // A $selection is [key, value] Example: ['carpet', 'Brown']
-        $addonTitle = $selection[0];
+        $addonTitle = $selection[2];
         $addonValue = $selection[1];
         ?>
         <li><?= $addonTitle ?>: <?= $addonValue ?></li>
   <? } ?>
-
+        <li><br/><a href="#" onclick="history.go(-1)">Modify Selections</a></li>
 </ul>
+
 <img src="../<?= $productDb->images[0]?>" />
 </div> 
 <div class="six columns" id="checkout-form"> 
@@ -49,11 +50,11 @@ require_once('./cart.php');
   <ul class="form">
       <li>
       <label for="email">Your Name</label>
-      <input id="email" name="name" value="Joe Smith" />
+      <input id="email" name="name" value="" />
       </li>
       <li>
       <label for="email">Email</label>
-      <input id="email" name="email" value="foo@bar.com" />
+      <input id="email" name="email" value="" />
       </li>
    </ul>
    </fieldset>   
@@ -62,7 +63,7 @@ require_once('./cart.php');
     <ul class="form">
       <li> 
       <label for="address_1">Address Line 1</label>
-      <input id="address_1" name="address_1" value="1234 memory lane"/>
+      <input id="address_1" name="address_1" value=""/>
       </li>
       <li>
       <label for="address_2">Address Line 2</label>
@@ -70,15 +71,15 @@ require_once('./cart.php');
       </li>
       <li class="six columns">
       <label for="city">City</label>
-      <input id="city" name="city" value="Seattle" />
+      <input id="city" name="city" value="" />
       </li>
       <li class="two columns">
       <label for="state">State</label>
-      <input id="state" name="state" value="WA"  />
+      <input id="state" name="state" value=""  />
       </li>
       <li class="four columns last">
       <label for="zip">Zip</label>
-      <input id="zip" name="zip" value="98177" />
+      <input id="zip" name="zip" value="" />
       </li>
     </ul>
   </fieldset>

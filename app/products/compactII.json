@@ -1,11 +1,11 @@
 {
     "id": "compactII",
-    "name": "Circa50: Compact II",
-    "subtitle": "Litter Hideaway & Pet House ",
-    "description": "The Circa50 Modular Collection is modeled with Mid-Century design principals; styled yet simple, with utility and durability in mind. These cabinets can stand alone, stack or sit side-by-side in endless configurations to disguise unsightly litter pans, reduce litter tracking or be used as a place for your modern cat or dog to play, perch or sleep while fitting into your home's modern style.",
+    "name": "Compact II Cabinet",
+    "subtitle": "litter hideaway | pet house ",
+    "description": "Featuring an entrance on both ends, this dual-purpose side table adds sleek, modern style without taking up too much extra space!  Designed to conveniently disguise unsightly litter pans or be used as a place for your modern cat (or dog!) to play, perch or sleep, this cabinet also fits perfectly into your home’s modern décor. <br/><br/>Pair with the Standard Cabinet to reduce litter tracking and add extra aesthetic appeal.",
     "options": {
-        "door": {"title":"Pet Entrance Shape", "options": "door"},
-        "laminate" : {"title": "Door Finish", "options": "laminate1"}
+        "door": {"title":"Pet Entrance Shape", "options": "door", "switch":"doorshape"},
+        "laminate" : {"title": "Door Finish", "options": "laminate1", "switch":"compactlam"}
     },
     "addons": {
             "fleece":{
@@ -22,6 +22,11 @@
                 "title": "Litter Mat",
                 "options": null,
                 "price": 19
+            }, 
+            "litterpan":{
+                "title": "Litter Pan",
+                "options": null,
+                "price": 10
             }
     },
     "price": 449,
@@ -29,12 +34,12 @@
         {
             "title": "Features",
             "content": [
-                "Stackable & Modular",
-                "Hinged doors for easy access",
-                "Pet entrance on both sides ",
-                "Holes on either side allow for ventilation and easy moving",
                 "Handcrafted with 3/4\" Walnut Hardwood veneer Euro Ply",
                 "Water resistant finish wipes clean",
+                "Stackable & Modular",
+                "Hinged door for easy access",
+                "Pet entrance on both sides",
+                "Holes on either side allow for ventilation and easy moving",
                 "Optional removable 1\" foam cushion in your choice of fabric",
                 "Optional removable 2\" foam bed with washable fleece cover "
             ]
@@ -43,9 +48,10 @@
             "title": "Specifications",
             "content": [
                 "13½\"W x 18½\"D x 24½\"H",
-                "Interior: 17\"L x 12\"W",
+                "Interior: 12\"W x 17\"D x 19\"H",
                 "Pet entrance edge: 5½\"",
-                "Removable Legs: 4\"H\""
+                "Pet entrance dimensions:<ul><li>Circle - 8\" diameter</li><li>Rectangle - 13\"W x 11½\"H</li></ul>",
+                "Removable Legs: 4\"H"
             ]
         },
         {
@@ -57,7 +63,7 @@
             ]
         }
     ],
-    "pinitcaption" : "Circa50:CompactII, Litter Hideaway and Pet House",
+    "pinitcaption" : "Compact II Cabinet, litter hideaway | pet house",
     "images": [
         "img/products/compactII1.jpg",
         "img/products/compactII2.jpg",

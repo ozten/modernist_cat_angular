@@ -1,12 +1,22 @@
 
 	<div class="twelve columns"><div id="shopBadge">
-      Free Shipping!
+      free shipping!
     </div>
-	<h5>The Circa50 Collection</h5>	<p>
-Designed with you and your pet in mind; our mid-century modern inspired line of litter box covers and dual-purpose furniture caters to your sense of style AND your need to spoil your pet! </p>
+	<h5>{{productlist.title}}</h5>	<p ng-bind-html-unsafe="productlist.intro">
+ </p>
     <ul class="productList horizontal no-bullet">
 
-      	<thumbnail ng-repeat="product in products" name={{product.name}} subtitle={{product.subtitle}} prodID={{product.id}} price={{product.price}}><img ng-src="{{product.imageUrl}}" /></thumbnail>
+      	
+
+      	<li class="product" ng-repeat="product in products">
+			<div class="thumbnail">
+				<a href="#/products/{{product.id}}" title="{{product.subtitle}}" class="title"><img ng-src="{{product.imageUrl}}" /></a> 
+				<div ng-class="{ active: activePath=='/products/{{product.id}}' }">
+					<span>
+						<a href="#/products/{{product.id}}" title="{{product.subtitle}}" class="title"> {{product.name}}</a><br/>{{product.subtitle}}<br/>${{product.price}}</span>
+				</div>
+			</div>
+		</li>
       		
   	</ul>
     </div>

@@ -1,6 +1,6 @@
 /* Base Type Styles Using Modular Scale ---------------------- */
-body {font-family: arial, helvetica, sans-serif; font-size: 14px; line-height: 1.3}
-
+body {font-family: arial, helvetica, sans-serif; font-size: 13px; line-height: 1.3; color: rgb(103, 104, 88);;}
+h1, h2, h3, h4, h5, h6, legend {color:rgb(103, 104, 88);}
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td { margin: 0; padding: 0; direction: ltr; }
 
 p { font-family: inherit; font-weight: normal; font-size: 13px; line-height: 1.2; margin-bottom: 17px; }
@@ -8,7 +8,7 @@ p.lead { font-size: 17.5px; line-height: 1.3; margin-bottom: 17px; }
 
 aside p { font-size: 13px; line-height: 1.35; font-style: italic; }
 
-h1, h2, h3, h4, h5, h6 { font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-weight: bold; font-style: normal; color: #222222; text-rendering: optimizeLegibility; line-height: 1.1; margin-bottom: 14px; margin-top: 14px; }
+h1, h2, h3, h4, h5, h6 { font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-weight: bold; font-style: normal;text-rendering: optimizeLegibility; line-height: 1.1; margin-bottom: 14px; margin-top: 14px; }
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small { font-size: 60%; color: #6f6f6f; line-height: 0; }
 
 h1 { font-size: 44px; }
@@ -35,12 +35,12 @@ small { font-size: 60%; line-height: inherit; }
 
 code { font-weight: bold; background: #ffff99; }
 
-#product-details input {padding-right:8px;}
 
 
+.columns .columns {padding:0px;}
 
 /* Lists ---------------------- */
-ul, ol, dl { font-size: 14px; line-height: 1.2; margin-bottom: 17px; list-style-position: outside; }
+ul, ol, dl {font-size:13px; line-height: 1.2; margin-bottom: 17px; list-style-position: outside; }
 
 ul li ul, ul li ol { margin-left: 20px; margin-bottom: 0; }
 ul.square, ul.circle, ul.disc { margin-left: 17px; }
@@ -58,7 +58,7 @@ ol li ul, ol li ol { margin-left: 20px; margin-bottom: 0; }
 
 /* Links ------------------------ */
 a {color: rgb(14, 125, 158); cursor:pointer;}
-a:hover, a:focus {color: rgb(3, 84, 108)}
+a:hover, a:focus, a.active {color: rgb(3, 84, 108)}
 
 
 
@@ -161,35 +161,13 @@ a:hover, a:focus {color: rgb(3, 84, 108)}
   padding: 0;
 }
 
-
-@font-face {
-    font-family: 'WhitehallRegular';
-    src: url('fonts/whitehall-webfont.eot');
-    src: url('fonts/whitehall-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/whitehall-webfont.woff') format('woff'),
-         url('fonts/whitehall-webfont.ttf') format('truetype'),
-         url('fonts/whitehall-webfont.svg#WhitehallRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face {
-    font-family: 'RedressedRegular';
-    src: url('fonts/Redressed-webfont.eot');
-    src: url('fonts/Redressed-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/Redressed-webfont.woff') format('woff'),
-         url('fonts/Redressed-webfont.ttf') format('truetype'),
-         url('fonts/Redressed-webfont.svg#RedressedRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
 }
 
 
 
 /*** modernistcat ****/
-body  {color:rgb(49, 49, 47);}
-h1, h2, h3, h4, h5, h6, legend {color:rgb(103, 104, 88);}
+
+
 
 
 #content { clear: both; }
@@ -219,7 +197,7 @@ nav {
   margin-top:70px;
 }
 nav ul li { float: left; display: block; margin-left: 10px;}
-
+nav ul li.link {line-height:1.6em;}
 .social{
   background:url('images/layout/socialicons.png') no-repeat 0 0;
   height:22px;
@@ -254,20 +232,44 @@ margin-top:40px;
 
 /* home page */
 #home-products {
-  background-color:rgba(224, 221, 218, .75);
+
   float:right;
+}
+#home-products .productlist {
+  background-color:rgba(224, 221, 218, .75);
+  padding:15px;
+  float:left;
+    position: relative;
+}
+
+#home-products .productlist h5 {
+  margin-top:0px;
 }
 
 #home-products li {
   width:33.3333%;
-  position:relative;
 
 }
 #shopBadge {
   position:absolute;
-  right:0px;
-  top:0px;
+  right:-15px;
+  top:-7px;
+  background-color: rgb(220, 207, 61);
+  font-family: Georgia, serif;
+  font-size:18px;
+  font-style:italic;
+  padding:3px 18px; 
 }
+
+#detail-products #shopBadge {
+  display:none;
+}
+#detail-products p {
+  display:none;
+}
+
+
+
 #home-links{
   float:right;
 }
@@ -286,7 +288,8 @@ margin-top:40px;
 }
 
 .thumbnail {
-  margin-right:10px;
+  margin-right:5px;
+  margin-left:5px;
   margin-bottom:10px;
   background-color:#ffffff;
   
@@ -295,7 +298,7 @@ margin-top:40px;
 
 }
 .thumbnail div {
-  padding:10px;
+  padding:9px;
   background: rgb(72, 62, 50);
   background: rgba(72, 62, 50, 0.75);
   color:#fff;
@@ -307,12 +310,24 @@ margin-top:40px;
   font-size:1.1em;
 
 }
-.thumbnail:hover div {
+.thumbnail:hover div, .thumbnail div.active {
   background: rgb(72, 62, 50);
   background: rgba(72, 62, 50, 1.0);
 }
 .thumbnail img {
   padding-bottom:22px;
+}
+
+#detail-products .thumbnail div {
+  display:none;
+}
+#detail-products .thumbnail:hover div {
+  display:block;
+  margin-top:-75px;
+  min-height:75px;
+  background: rgba(72, 62, 50, 0.75);
+  position:relative;
+  z-index:5;
 }
 
 
@@ -323,19 +338,34 @@ margin-top:40px;
 
 /*product pages*/
 .product h2 {
-  font-family: 'Handlee', cursive;
+  /*font-family: Georgia, serif;*/
   font-weight: normal;
+  font-size:28px;
+  margin-bottom:0px;
 }
 
-.prices {
+.product h4 {
+  font-weight: normal;
+  margin-top:0px;
+  font-size: 16px;
+  color: rgb(155, 156, 141);
+}
+
+.product h5 {
+  font-size:14px;
+  font-weight:600;
+  margin-top:0px;
+}
+.columns.prices {
   border-top:1px solid #676858;
   border-bottom:1px solid #676858;
   margin-top:6px;
-  padding: 12px 0px;
+  padding: 12px 15px;
 }
 #price {
-  padding:2px 0px;
+  padding:6px 0px;
   display:inline-block;
+  font-weight:bold;
 }
 .main-image {
   position:relative;
@@ -360,7 +390,7 @@ margin-top:40px;
   display:block;
 }
 
-li.selection-radio {
+li.selection-radio, li.selection-radioprice  {
   display:none;
 }
 
@@ -376,7 +406,16 @@ li.selection-tile {
 
 #product-addons ul ul {
   float:left;
+  margin-left:25px;
+  margin-top:3px;
 }
+#product-details input {width:18px;}
+#product-details input[type="checkbox"]{
+  float:left;
+}
+
+.checklabel {margin-left:25px; padding-top:3px;}
+#product-addons .notes {font-size:.95em; padding-top:6px;}
 
 
 .thumbs li {

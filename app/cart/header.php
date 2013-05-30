@@ -22,11 +22,11 @@
 
 <div class="row">
     <div class="twelve columns">
-    	<h1 class="logo alt">modernistcat made for pets. designed for you.</h1>
+    	<a href="/"><h1 class="logo alt">modernistcat made for pets. designed for you.</h1></a>
     </div>
 </div>
 <div class="row">
 	<div class="twelve columns">
-        <div class="row" id="content">
+        <div id="content">
 
         

@@ -4,15 +4,13 @@
   "subtitle": "cat scratcher | console table",
   "description": "Perfect for any room in your home and ideal for small spaces!  This dual-purpose console attaches to any wall for support, providing a sleek and functional solution for keeping important items at hand while giving your modern kitty the ultimate place to perch and scratch.<br/><br/>We offer custom-fit scratch pad surfaces that are replaceable if they become worn or if you want to change the color to switch up your décor.<br/><br/>Can't find the color or style Scratch Pad you need? Please inquire for additional options.",
   "options": {
-    "scratch" : {"title":"Scratch Pad", "options": "scratch", "switch":"console"}
+    "scratch" : {"title":"Scratch Pad", "options": "scratch"}
     },
   "addons": {
     "scratch2" : {
         "options": "scratch", 
-        "title":"Additional Scratch Pad",
-        "notes":"Includes Hardware",
+        "title":"Additional Scratch Pad - Includes Hardware",
         "description":"Can't find the color or style Scratch Pad you need? Please inquire for additional options.",  
-        "switch":"console",
         "price": 29
         }
   },

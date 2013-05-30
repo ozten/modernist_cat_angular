@@ -95,16 +95,16 @@
 }
 
 .carousel-control {
-  font-family:Helvetica, Arial, sans-serif;
+  font-family:Georgia, Arial, sans-serif;
   position: absolute;
   top: 45%;
   left: -22px;
   width: 40px;
   height: 40px;
   padding:0 8px;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 100;
-  line-height: 40px;
+  line-height: 34px;
   color: #c8be38;
   text-align: left;
   cursor:pointer;

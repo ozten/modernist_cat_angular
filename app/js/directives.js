@@ -3,23 +3,6 @@
 /* Directives */
 
 
-app.directive("thumbnail", function() {
-	return {
-		scope: {
-			name:"@",
-			subtitle:"@",
-			prodid:"@",
-			price:"@"
-		},
-		restrict: "E",
-		transclude: true,
-		template: '<li class="product">'+
-					'<div class="thumbnail"><a href="#/products/{{prodid}}" title="{{subtitle}}" class="title" ng-transclude></a>' + 
-					'<div><span><a href="#/products/{{prodid}}" title="{{subtitle}}" class="title"> {{name}}</a><br/>{{subtitle}}<br/>${{price}}</span>' + 
-					'</div></div></li>',
-		replace: true
-	}
-});
 
 app.directive("chooser", function($compile) {
 	return {
@@ -41,12 +24,7 @@ app.directive("chooser", function($compile) {
 					}
 					if (value.indexOf("radio") != -1){
 						var id = value.split('-');
-						var checked = "";
-						if(id[1] == scope.options[scope.optionType.options].selected) { 
-							checked = "checked='true'";
-							scope.choiceValues[scope.key] = scope.options[scope.optionType.options].choices[id[1]];
-						}
-						var input = '<input type="radio" name="' + scope.optionType.title + '" value="' + id[1] + '"' + checked + '>';
+						var input = '<input type="radio" name="' + scope.optionType.title + '" value="' + id[1] + '">';
 						var html = $compile(input)(scope);
 						element.prepend(html);
 					}

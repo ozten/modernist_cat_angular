@@ -13,17 +13,16 @@
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/bootstrap-ui.css">
     <link rel="stylesheet" href="css/app.css">
-    <link href='http://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
-    <!--<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">-->
+    <link href='http://fonts.googleapis.com/css?family=Montez' rel='stylesheet' type='text/css'>
  
   </head>
-<body>
+<body ng-controller="mainCtrl">
   <div class="row header">
           <div class="six columns">
           <a href="/"><h1 class="logo alt">modernistcat made for pets. designed for you.</h1></a>
           </div>
           <div class="six columns">
-          <nav class="right"><ul class="no-bullet"><li><a href="#/shop">shop</a></li><li><a href="#/aboutus">about us</a></li><li><a href="#/faq">FAQ</a></li>
+          <nav class="right"><ul class="no-bullet"><li class="link"><a ng-class="{ active: activePath=='/shop' }"href="#/shop">shop</a></li><li class="link"><a ng-class="{ active: activePath=='/aboutus' }" href="#/aboutus">about us</a></li><li class="link"><a ng-class="{ active: activePath=='/faq' }" href="#/faq">FAQ</a></li>
           <li><a href="http://www.facebook.com/pages/Seattle-WA/Modernist-Cat/115777068471250" title="Like us on Facebook"  class="social facebook alt">Facebook</a></li>
           <li><a href="https://twitter.com/ModernistCat" class="social twitter alt" data-show-count="false" title="Follow us on Twitter">Twitter</a></li>
           <li><a  class="social pinterest alt" href="http://pinterest.com/modernistcat/" title="Follow us on Pinterest">Pinterest</a></li>

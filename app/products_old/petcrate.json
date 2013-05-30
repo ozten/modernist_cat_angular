@@ -4,7 +4,7 @@
     "subtitle": "dog house | side table",
     "description": "Finally—a dog crate that accentuates your modern style!   You’ll love this dual-purpose cabinet with its sleek modern lines and innovative door storage system. It’s now easy to turn your pet’s cozy space into a secure dog den.  Say goodbye to your old plastic eyesore. <br/><br/>For safety, remove all collars and leashes before securing pet in crate.",
     "options": {
-        "fleece": {"title":"Interior Fleece Bed", "options" : "fleece", "switch":"petcrate"}
+        "fleece": {"title":"Interior Fleece Bed", "options" : "fleece"}
     },
     "addons": "",
     "price": 699,
@@ -30,7 +30,7 @@
                 "Pet entrance: 11 ½\"W x 13\"H",
                 "Pet entrance edge: 3 ¾\"H",
                 "Removable Legs: 4\"H",
-                "Side Slats: 18\"W x 2 ½\"H"
+                "Side Slats: 2 ½\"H x 18\"W"
             ]
         },
         {

@@ -4,9 +4,9 @@
     "subtitle": "litter hideaway | pet house ",
     "description": "Perfect for smaller spaces, this dual-purpose side table adds sleek, modern style to any room in your home!  Designed to conveniently disguise unsightly litter pans or be used as a place for your modern cat (or dog!) to play, perch or sleep, this cabinet also fits perfectly into your home’s modern décor.",
     "options": {
-        "door": {"title":"Pet Entrance Shape", "options": "door", "switch":"doorshape"},
-        "entSide":{"title":"Pet Entrance Side" ,"options": "entSide", "switch":"compactI"},
-        "laminate" : {"title": "Door Finish", "options": "laminate1", "switch":"compactlam"}
+        "door": {"title":"Pet Entrance Shape", "options": "door"},
+        "entSide":{"title":"Pet Entrance Side" ,"options": "entSide"},
+        "laminate" : {"title": "Door Finish", "options": "laminate1"}
     },
     "addons": {
             "fleece":{
@@ -46,8 +46,7 @@
                 "13½\"W x 18½\"D x 24½\"H",
                 "Interior: 12\"W x 17\"D x 19\"H",
                 "Pet entrance edge: 5½\"",
-                "Pet entrance dimensions:<ul><li>Circle - 8\" diameter</li><li>Rectangle - 13\"W x 11½\"H</li></ul>",
-                "Removable Legs: 4\"H"
+                "Removable Legs: 4\"H\""
             ]
         },
         {

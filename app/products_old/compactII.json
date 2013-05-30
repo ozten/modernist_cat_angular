@@ -1,12 +1,11 @@
 {
-    "id": "compactI",
-    "name": "Compact I Cabinet",
+    "id": "compactII",
+    "name": "Compact II Cabinet",
     "subtitle": "litter hideaway | pet house ",
-    "description": "Perfect for smaller spaces, this dual-purpose side table adds sleek, modern style to any room in your home!  Designed to conveniently disguise unsightly litter pans or be used as a place for your modern cat (or dog!) to play, perch or sleep, this cabinet also fits perfectly into your home’s modern décor.",
+    "description": "Featuring an entrance on both ends, this dual-purpose side table adds sleek, modern style without taking up too much extra space!  Designed to conveniently disguise unsightly litter pans or be used as a place for your modern cat (or dog!) to play, perch or sleep, this cabinet also fits perfectly into your home’s modern décor. <br/><br/>Pair with the Standard Cabinet to reduce litter tracking and add extra aesthetic appeal.",
     "options": {
-        "door": {"title":"Pet Entrance Shape", "options": "door", "switch":"doorshape"},
-        "entSide":{"title":"Pet Entrance Side" ,"options": "entSide", "switch":"compactI"},
-        "laminate" : {"title": "Door Finish", "options": "laminate1", "switch":"compactlam"}
+        "door": {"title":"Pet Entrance Shape", "options": "door"},
+        "laminate" : {"title": "Door Finish", "options": "laminate1"}
     },
     "addons": {
             "fleece":{
@@ -18,6 +17,11 @@
                 "title": "Exterior Lounge Pad",
                 "options": "fabric",
                 "price": 29
+            }, 
+            "littermat":{
+                "title": "Litter Mat",
+                "options": null,
+                "price": 19
             }, 
             "litterpan":{
                 "title": "Litter Pan",
@@ -34,7 +38,7 @@
                 "Water resistant finish wipes clean",
                 "Stackable & Modular",
                 "Hinged door for easy access",
-                "Right-hand side OR left-hand side pet entrance ",
+                "Pet entrance on both sides",
                 "Holes on either side allow for ventilation and easy moving",
                 "Optional removable 1\" foam cushion in your choice of fabric",
                 "Optional removable 2\" foam bed with washable fleece cover "
@@ -43,11 +47,10 @@
         {
             "title": "Specifications",
             "content": [
-                "13½\"W x 18½\"D x 24½\"H",
+                "13 ½\"W x 18 ½\"D x 24 ½\"H",
                 "Interior: 12\"W x 17\"D x 19\"H",
-                "Pet entrance edge: 5½\"",
-                "Pet entrance dimensions:<ul><li>Circle - 8\" diameter</li><li>Rectangle - 13\"W x 11½\"H</li></ul>",
-                "Removable Legs: 4\"H"
+                "Pet entrance edge: 5 ½\"",
+                "Removable Legs: 4\"H\""
             ]
         },
         {
@@ -59,10 +62,10 @@
             ]
         }
     ],
-    "pinitcaption" : "Compact I Cabinet, litter hideaway | pet house",
+    "pinitcaption" : "Compact II Cabinet, litter hideaway | pet house",
     "images": [
-        "img/products/compactI1.jpg",
-        "img/products/compactI2.jpg",
-        "img/products/compactI3.jpg"
+        "img/products/compactII1.jpg",
+        "img/products/compactII2.jpg",
+        "img/products/compactII3.jpg"
     ]
 }
