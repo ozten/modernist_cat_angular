@@ -89,14 +89,55 @@ require_once('./cart.php');
       <textarea id="comments" name="comments" value="comments" cols="10" rows="3" ></textarea>
   </fieldset>
 
-  <script
-    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
-    data-key="<?= $STRIPE_PUBLISHABLE_KEY ?>"
-    data-amount="<?= $total_price * 100 ?>"
-    data-name="Modernistcat"
-    data-description="<?= htmlspecialchars($stripe_description) ?>"
-    data-image="/<?= $productDb->images[0] ?>">
-  </script>
+  <button class="stripe-button-el" type="submit"><span style="display: block; min-height: 30px;">Pay with Card</span></button>
+
 </form>
 </div>
+<script src="https://checkout.stripe.com/v2/checkout.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+$(document).ready(function(){
+  function validate() {
+    return true;
+  }
+
+  // A couple things must go right...
+  // Form must be valid
+  // We must have already retrived the Stripe token
+  // We achieve this by submitting the form atleast twice and canelling
+  // along the way.
+  var stripeSubmited = false;
+  $('#payment-form').submit(function(e) {
+    if (validate() === false) {
+      e.preventDefault();
+      return false;
+    }
+
+    if (stripeSubmited === false) {
+      e.preventDefault();
+      var token = function(res){
+        stripeSubmited = true;
+        var $input = $('<input type=hidden name=stripeToken />').val(res.id);
+       $('form').append($input).submit();
+      };
+
+      StripeCheckout.open({
+        key:         '<?= $STRIPE_PUBLISHABLE_KEY ?>',
+        address:     false,
+        amount:      <?= $total_price * 100 ?>,
+        currency:    'usd',
+        name:        'Modernistcat',
+        description: '<?= htmlspecialchars($stripe_description) ?>',
+        panelLabel:  'Checkout',
+        image:       "/<?= $productDb->images[0] ?>",
+        token:       token
+      });
+      return false;
+    } else {
+      // Form must be valid and Stripe magick is ready
+      return true;
+    }
+  });
+});
+  </script>
 <?php include 'footer.php'; ?>
