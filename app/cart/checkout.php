@@ -26,16 +26,6 @@ if ($rawJson == FALSE) {
 $productDb = json_decode($rawJson);
 $optionsDb = json_decode(file_get_contents('../products/options.json'));
 $addonsSelected = array();
-$addonDetails = array();
-$optionDetails = array();
-foreach($_POST as $key => $value) {
-    if (strncmp($key, 'addon_', 6) == 0) {
-        $addonsSelected[substr($key, 6)] = 'true';
-        array_push($addonDetails, substr($key, 6) . " = " . $value);
-    } else if (strncmp($key, 'option_', 7) == 0) {
-        array_push($optionDetails, substr($key, 7) . " = " . $value);
-    }
-}
 
 if ($product_id == 'feeder') {
     array_push($optionDetails, 'feeder_size', $_POST['feeder_size']);
@@ -58,11 +48,23 @@ $state = $_POST['state'];
 $zip = $_POST['zip'];
 $comment = $_POST['comments'];
 
+$emailAddonsSelected = "";
+foreach ($addonSelections as $addonSelected) {
+  if (count($addonSelected) >= 3) {
+    $emailAddonsSelected .=  $addonSelected[2] . ': ' .$addonSelected[1] . "\n"; 
+  }
+}
+
+$emailOption = "";
+foreach((array) $options as $key => $value) {
+  $emailOption .= $key . ": " . $value . "\n";
+}
+
 $stripe_description = $name . "<" . $email . "> --- \n\n" . $address_1 . " \n" .
     $address_2 . " \n" . $city . " " . $state . " " . $zip .
     "\n\n --- 1 product --- \n" . $stripe_description .
-    "\n --- Addons: \n" . implode(', ', $addonDetails) .
-    "\n --- Options: \n" . implode(', ', $optionDetails) .
+    "\n\n --- Options: \n" . $emailOption .
+    "\n\n --- Addons: \n" . $emailAddonsSelected .
     "\n\n --- Comment: \n" . $comment;
 
 // Create the charge on Stripe's servers - this will charge the user's card

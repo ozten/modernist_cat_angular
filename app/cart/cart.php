@@ -69,9 +69,9 @@ $addonValues = json_decode($incomingAddonValues, TRUE);
 $addonSelections = array();
 foreach($addonsSelected as $addon => $value) {
     if ($value == TRUE) {
-        if ($productDb->addons->{$addon}) {
+        if (property_exists($productDb->addons, $addon) && $productDb->addons->{$addon}) {
 	       $addonKey = $productDb->addons->{$addon}->options;
-         $addonTitle = $productDb->addons->{$addon}->title;
+           $addonTitle = $productDb->addons->{$addon}->title;
            if (is_null($addonKey)) {
               // Do nothing, this is for addons like litterpan
               $addonKey = $addon;
@@ -80,13 +80,13 @@ foreach($addonsSelected as $addon => $value) {
               // A valid selection!
               $addonValue = $addonValues[$addon]; 
               if (in_array($addonValue, $optionsDb->{$addonKey}->choices) == FALSE) {
-                 die('Invalid Addon choice, <?= $addon => cannot be $value for <?= $product_id product =>');
+                 die('Invalid Addon choice, ' . $addon . 'cannot be $value for ' . $product_id . ' product' );
               }
            }
            array_push($addonSelections, array($addon, $addonValue, $addonTitle));   
 
         } else {
-            die('Invalid addon $addon is not valid for $product_id product');
+            die('Invalid addon ' . $addon . ' is not valid for ' . $product_id . ' product');
         }
     }
 }
