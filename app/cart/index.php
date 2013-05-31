@@ -49,8 +49,8 @@ require_once('./cart.php');
     <legend>Contact Info</legend>
   <ul class="form">
       <li>
-      <label for="email">Your Name</label>
-      <input id="email" name="name" value="" />
+      <label for="name">Your Name</label>
+      <input id="name" name="name" value="" />
       </li>
       <li>
       <label for="email">Email</label>
@@ -97,8 +97,33 @@ require_once('./cart.php');
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>
 $(document).ready(function(){
+  $('#name').focus();
   function validate() {
-    return true;
+    $('input').removeClass('error');
+    var valid = true,
+        nonBlank = ['name', 'email', 'address_1', 'city', 'state', 'zip'],
+        input;
+    for (var i=0; i<nonBlank.length; i++) {
+      input = $('#' + nonBlank[i]);
+      if (input.val().length === 0) {
+        valid = false;
+        input.addClass('error');
+      }
+    }
+    input = $('#email');
+    // Email must have an '@' character. Can't be in first or last
+    if (input.val().indexOf('@') <= 0 ||
+        input.val().indexOf('@') + 1 === input.val().length ) {
+      valid = false;
+      input.addClass('error');
+    }
+    input = $('#zip');
+    var zip = parseInt(input.val(), 10);
+    if (isNaN(zip)) {
+      valid = false;
+      input.addClass('error');
+    }
+    return valid;
   }
 
   // A couple things must go right...
